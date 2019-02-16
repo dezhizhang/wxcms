@@ -8,11 +8,35 @@ module.exports = app => {
   router.get('/', controller.home.index);
  
   //用户登录接口
-  router.post('/api/user/login',controller.admin.login.userAccount);
+  router.post('/api/admin/login',controller.admin.login.userAccount);
 
   //用户注册接口
-  router.post('/api/user/register',controller.admin.login.userRegister);
+  router.post('/api/admin/register',controller.admin.login.userRegister);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   //轮播图上传接口
   router.post('/api/uploadBannerImage',controller.default.banner.uploadImage);
 
@@ -24,7 +48,7 @@ module.exports = app => {
 
   //主题图片的获取
   router.get('/api/themeImage',controller.default.theme.themeImage);
-  
+
 
 
   
