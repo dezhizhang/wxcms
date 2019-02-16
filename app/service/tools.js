@@ -1,6 +1,9 @@
 'use strict';
 
 const md5 = require('md5');
+const path = require('path');
+const sd = require('silly-datetime');
+const mkdirp = require('mz-modules/mkdirp') 
 
 const Service = require('egg').Service;
 
@@ -12,6 +15,14 @@ class  ToolsService extends Service {
         
     }
 
+    //返回时间
+    async getTime() {
+        let d = new Date();
+        return d.getTime();
+   
+    }
+
+   
 }
 
 module.exports = ToolsService;

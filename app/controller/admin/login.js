@@ -1,11 +1,14 @@
 'use strict';
 
+const fs = require('fs');
+
 const Controller = require('egg').Controller;
 
 class LoginController extends Controller {
   //用户登录接口
   async userAccount() {
       let result = this.ctx.request.body;
+    
         if(result.userName && result.password) {
                 result.password = await this.service.tools.md5(result.password);
                 
@@ -15,7 +18,8 @@ class LoginController extends Controller {
                     this.ctx.body = {
                         code:200,
                         message:'登录成功',
-                        success:true
+                        success:true,
+                        data:{userName:result.userName}
                     }
                 } else {
                     this.ctx.body = {
@@ -64,6 +68,15 @@ class LoginController extends Controller {
 
       }
   }
+  //用户上传图片
+   async uploadImage() {
+
+       this.ctx.body = {
+           code:200,
+           success:true,
+           message:'上传图片成功'
+       }
+   }
 }
 
 
