@@ -57,6 +57,8 @@ class BannerController extends Controller {
             data:result
         }
     }
+
+  
 }
 
 
