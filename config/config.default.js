@@ -6,7 +6,7 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1550064243846_2989';
 
-  config.uploadDir = 'app/public/admin/upload';
+  config.uploadDir = 'app/public/default/upload';
 
   // add your config here
   config.middleware = [];
@@ -20,7 +20,7 @@ module.exports = appInfo => {
     };
   
   
-    // 允许请求
+    //允许请求
     config.cors = {
       origin: '*',
       allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',

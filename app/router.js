@@ -13,8 +13,14 @@ module.exports = app => {
   //用户注册接口
   router.post('/api/user/register',controller.admin.login.userRegister);
 
-  //图片上传接口
-  router.post('/api/user/uploadImage',controller.admin.login.uploadImage)
+  //轮播图上传接口
+  router.post('/api/user/uploadImage',controller.admin.banner.uploadImage);
+
+  //轮播图获取接口
+  router.get('/api/user/bannerImage',controller.admin.banner.bannerImage);
+
+
+
 
 
   

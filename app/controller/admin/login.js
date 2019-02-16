@@ -69,45 +69,7 @@ class LoginController extends Controller {
 
       }
   }
-  //用户上传图片
-   async uploadImage() {
-    let parts = this.ctx.multipart({ autoFields: true });
-    let files = {};               
-    let stream;
-    while ((stream = await parts()) != null) {
-        if (!stream.filename) {          
-          break;
-        }       
-        let fieldname = stream.fieldname;  //file表单的名字
-
-        //上传图片的目录
-        let dir=await this.service.tools.getUploadFile(stream.filename);
-        let target = dir.uploadDir;
-        let writeStream = fs.createWriteStream(target);
-
-        await pump(stream, writeStream);  
-
-        files=Object.assign(files,{
-          [fieldname]:dir.saveDir    
-        })
-        
-    }      
-
-
-    var formFields=Object.assign(files,parts.field);
-
-
-
-    // //增加商品信息
-    // let goodsRes =new this.ctx.model.Goods(formFields);    
-    // var result=await goodsRes.save();
-
-       this.ctx.body = {
-           code:200,
-           success:true,
-           message:'上传图片成功'
-       }
-   }
+  
 }
 
 
