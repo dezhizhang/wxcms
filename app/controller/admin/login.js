@@ -6,24 +6,33 @@ class LoginController extends Controller {
   //用户登录接口
   async userAccount() {
       let result = this.ctx.request.body;
+        if(result.userName && result.password) {
+                result.password = await this.service.tools.md5(result.password);
+                
+                let data = await this.ctx.model.Login.find(result);
 
-      result.password = await this.service.tools.md5(result.password);
-     
-      let data = await this.ctx.model.Login.find(result);
+                if(data.length > 0) {
+                    this.ctx.body = {
+                        code:200,
+                        message:'登录成功',
+                        success:true
+                    }
+                } else {
+                    this.ctx.body = {
+                        code:404,
+                        message:'用户名或密码错误',
+                        success:false
+                    }
+                }
+        } else {
+            this.ctx.body = {
+                code:404,
+                message:'用户或密码不能为空',
+                success:false
+            }
+        }
 
-      if(data.length > 0) {
-          this.ctx.body = {
-              code:200,
-              message:'登录成功',
-              success:true
-          }
-      } else {
-          this.ctx.body = {
-              code:404,
-              message:'用户名或密码错误',
-              success:false
-          }
-      }
+      
       
   }
   //用户注册
