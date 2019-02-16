@@ -22,6 +22,28 @@ class  ToolsService extends Service {
    
     }
 
+    //文件目录
+    async getUploadFile(filename){
+        let day = sd.format(new Date(),'YYYYMMDD');
+  
+        //创建图片保存的路径
+        let dir = path.join(this.config.uploadDir,day);
+        await mkdirp(dir);
+   
+        let d = await this.getTime(); 
+  
+        let uploadDir = path.join(dir,d + path.extname(filename));
+  
+       
+        return {
+          uploadDir:uploadDir,
+          saveDir:uploadDir.slice(3).replace(/\\/g,'/')
+  
+        }
+  
+  
+    }
+
    
 }
 

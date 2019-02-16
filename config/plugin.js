@@ -9,10 +9,15 @@ exports.mongoose = {
     package: 'egg-mongoose',
   };
 
-
-
-exports.cors = {
+  //ejs模板引擎
+  exports.ejs = {
     enable: true,
-    package: 'egg-cors',
-};
+    package:'egg-view-ejs'
+  }
+
+
+  exports.cors = {
+      enable: true,
+      package: 'egg-cors',
+  };
 

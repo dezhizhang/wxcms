@@ -6,6 +6,8 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1550064243846_2989';
 
+  config.uploadDir = 'app/public/admin/upload';
+
   // add your config here
   config.middleware = [];
 
@@ -29,6 +31,14 @@ module.exports = appInfo => {
             enable: false,
         }
     };
+
+  //配置模板引擎
+  config.view = {
+    mapping: {
+      '.html': 'ejs'
+   
+    },
+  };
   
 
   return config;
