@@ -8,7 +8,13 @@ module.exports = app => {
   router.get('/', controller.home.index);
  
   //用户登录接口
-  router.post('/api/userLogin',controller.user.userLogin);
+  router.post('/api/login/account',controller.admin.login.userAccount);
+
+  //用户注册接口
+  router.post('/api/user/register',controller.admin.login.userRegister);
+
+
+  
 
 
 };
