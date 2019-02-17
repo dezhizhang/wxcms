@@ -57,8 +57,11 @@ module.exports = app => {
   //产品图片获取接口
   router.get('/api/productImage',controller.default.product.productImage);
 
-  //主题详情图片上传
-  router.post('/api/uploadThemeDetailImage',controller.default.theme.uploadThemeDetailImage);
+
+  //主题详情产品图
+  router.post('/api/uploadThemeProductImage',controller.default.theme.uploadThemeProductImage);
+  
+
 
 
 

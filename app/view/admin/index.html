@@ -8,10 +8,11 @@
 </head>
 <body>
     <div>
-        <form action="http://localhost:7001/api/uploadThemeImage" method="post" enctype="multipart/form-data">
+        <form action="http://localhost:7001/api/uploadThemeProductImage" method="post" enctype="multipart/form-data">
         <ul>
-        <li><span> 商品图片:</span> <input type="file" name="theme_url"/></li>
-       
+        <li><span> 主题图片:</span> <input type="file" name="product_url"/></li>
+        <li><span>主题名称<input type="text" name="name"/></span></li>
+        <li><span>主题id</span><input type="text" name="product_id"/></li>
         <li>
                 <br/>
                 <button type="submit" class="btn btn-primary">提交</button>

@@ -58,8 +58,8 @@ class ThemeController extends Controller {
         }
     }
 
-    //主题详情图片上传
-    async uploadThemeDetailImage() {
+    //主题详情图片
+    async uploadThemeProductImage() {
         let parts = this.ctx.multipart({ autoFields: true });
         let files = {};               
         let stream;
@@ -87,16 +87,18 @@ class ThemeController extends Controller {
 
 
 
-        //增加商品信息
-        let themeImage =new this.ctx.model.ThemeDetail(formFields);    
+        //增加主题详情信息
+        let themeImage =new this.ctx.model.ThemeProduct(formFields);    
         var result=await themeImage.save();
 
         this.ctx.body = {
             code:200,
-            message:'图片上传成功',
-            success:true
+            success:true,
+            message:'上传图片成功'
         }
     }
+
+    
 
   
 }
