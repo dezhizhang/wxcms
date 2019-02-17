@@ -58,6 +58,46 @@ class ThemeController extends Controller {
         }
     }
 
+    //主题详情图片上传
+    async uploadThemeDetailImage() {
+        let parts = this.ctx.multipart({ autoFields: true });
+        let files = {};               
+        let stream;
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {          
+            break;
+            }       
+            let fieldname = stream.fieldname;  //file表单的名字
+
+            //上传图片的目录
+            let dir=await this.service.tools.getUploadFile(stream.filename);
+            let target = dir.uploadDir;
+            let writeStream = fs.createWriteStream(target);
+
+            await pump(stream, writeStream);  
+
+            files=Object.assign(files,{
+            [fieldname]:dir.saveDir    
+            })
+            
+        }      
+
+
+        var formFields=Object.assign(files,parts.field);
+
+
+
+        //增加商品信息
+        let themeImage =new this.ctx.model.ThemeDetail(formFields);    
+        var result=await themeImage.save();
+
+        this.ctx.body = {
+            code:200,
+            message:'图片上传成功',
+            success:true
+        }
+    }
+
   
 }
 
