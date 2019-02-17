@@ -40,9 +40,7 @@ module.exports = app => {
   //轮播图上传接口
   router.post('/api/uploadBannerImage',controller.default.banner.uploadImage);
 
-  //   
-
-
+  //轮播图片的获取   
   router.get('/api/bannerImage',controller.default.banner.bannerImage);
 
   //主题图片上传接口
@@ -57,10 +55,13 @@ module.exports = app => {
   //产品图片获取接口
   router.get('/api/productImage',controller.default.product.productImage);
 
-
   //主题详情产品图
   router.post('/api/uploadThemeProductImage',controller.default.theme.uploadThemeProductImage);
-  
+
+  //主题详情接口
+  router.get('/api/themeDetail',controller.default.theme.themeDetail);
+
+
 
 
 
