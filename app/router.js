@@ -67,6 +67,14 @@ module.exports = app => {
   //获取商品图片
   router.get('/api/productDetail',controller.default.product.productDetail);
 
+  //分类上传接口
+  router.post('/api/uploadCategoryType',controller.default.category.uploadCategoryType);
+
+  //分类接口获取
+  router.get('/api/categoryType',controller.default.category.categoryType);
+  
+
+
 
 
 
