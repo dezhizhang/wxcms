@@ -4,9 +4,11 @@ module.exports = app => {
 
     let d = new Date();
 
-    const ProductScheam = new Schema({
+    const ProductSchema = new Schema({
         product_url:{ type:String },
+        product_id:{ type:Schema.Types.Mixed },
         name:{ type:String },
+        count:{ type:Number },
         price:{ type:Number },
         add_time:{
             type:Number,
@@ -14,5 +16,5 @@ module.exports = app => {
         }
     })
 
-    return mongoose.model('Product',ProductScheam,'product');
+    return mongoose.model('Product',ProductSchema,'product');
 }

@@ -61,6 +61,13 @@ module.exports = app => {
   //主题详情接口
   router.get('/api/themeDetail',controller.default.theme.themeDetail);
 
+  //商品详情上传接口
+  router.post('/api/uploadProductDetaail',controller.default.product.uploadProductDetaail);
+
+  //获取商品图片
+  router.get('/api/productDetail',controller.default.product.productDetail);
+
+
 
 
 

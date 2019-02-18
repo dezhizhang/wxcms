@@ -6,7 +6,11 @@ module.exports = app => {
     let d = new Date();
 
     const BannerSchema = new Schema({
-        banner_url:{ type:String },
+        product_url:{ type:String },
+        banner_id:{ type:Schema.Types.Mixed },
+        count:{ type:Number },
+        name:{ type:String },
+        price:{ type:Number },
         add_time:{
             type:Number,
             default:d.getTime()
