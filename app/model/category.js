@@ -7,6 +7,7 @@ module.exports = app => {
     const CategoryScheam = new Schema({
         name:{ type:String },
         category_id:{ type:String },
+        category_url:{ type:String },
         updatedTime:{
             type:Number,
             default:d.getTime()

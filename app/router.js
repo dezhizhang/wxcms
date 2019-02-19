@@ -72,6 +72,14 @@ module.exports = app => {
 
   //分类接口获取
   router.get('/api/categoryType',controller.default.category.categoryType);
+
+  //分类产品的获取
+  router.get('/api/categoryProduct',controller.default.category.categoryProduct);
+
+  //分类产品的上传
+  router.post('/api/uploadCategoryProduct',controller.default.category.uploadCategoryProduct);
+  
+
   
 
 
