@@ -78,6 +78,26 @@ module.exports = app => {
 
   //分类产品的上传
   router.post('/api/uploadCategoryProduct',controller.default.category.uploadCategoryProduct);
+
+  //获取用户地址
+  router.get('/api/user/address',controller.default.user.address);
+
+  //保存用户地址接口
+  router.post('/api/user/saveAddress',controller.default.user.saveAddress);
+  
+
+  
+  //用户加入token
+  router.post('/api/token/user',controller.default.user.token);
+  
+  //用户付款
+ router.post('/api/order/pay',controller.default.user.pay);
+ 
+ //获取订单列表
+ router.get('/api/user/order',controller.default.user.order);
+
+
+
   
 
   
