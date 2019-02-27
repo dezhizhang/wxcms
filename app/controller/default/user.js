@@ -1,3 +1,6 @@
+const fs = require('fs');
+const pump = require('pump');
+
 const Controller = require('egg').Controller;
 
 class UserController extends Controller {
@@ -69,6 +72,33 @@ class UserController extends Controller {
     }
     //qq上传接口
     async uploadList() {
+        let parts = this.ctx.multipart({ autoFields: true });
+        let files = {};               
+        let stream;
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {          
+            break;
+            }       
+            let fieldname = stream.fieldname;  //file表单的名字
+
+            //上传图片的目录
+            let dir=await this.service.tools.getUploadFile(stream.filename);
+            let target = dir.uploadDir;
+            let writeStream = fs.createWriteStream(target);
+
+            await pump(stream, writeStream);  
+
+            files=Object.assign(files,{
+            [fieldname]:dir.saveDir    
+            })
+            
+        }      
+
+
+        var formFields=Object.assign(files,parts.field);
+        //增加商品信息
+        let list =new this.ctx.model.List(formFields);    
+        var result=await list.save();
         this.ctx.body = {
             code:200,
             message:'上传成功'
@@ -79,7 +109,8 @@ class UserController extends Controller {
     async list() {
         this.ctx.body = {
             code:200,
-            message:'获取列表成功'
+            message:'获取列表成功',
+            data:[]
         }
     }
 

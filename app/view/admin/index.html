@@ -8,11 +8,13 @@
 </head>
 <body>
     <div>
-        <form action="http://localhost:7001/api/uploadCategoryProduct" method="post" enctype="multipart/form-data">
+        <form action="http://localhost:7001/api/user/uploadList" method="post" enctype="multipart/form-data">
         <ul>
-        <li><span> 主题图片:</span> <input type="file" name="category_product_url"/></li>
-        <li><span>描述<input type="text" name="description"/></span></li>
-        <li><span>主题id</span><input type="text" name="category_product_id"/></li>
+        <li><span> 头象:</span> <input type="file" name="avatar"/></li>
+        <li><span>用户名：<input type="text" name="user_name"/></span></li>
+        <li><span>消息：</span><input type="text" name="new_message"/></li>
+        <li><span>消息数：</span><input type="text" name="message_number"/></li>
+       
         <li>
                 <br/>
                 <button type="submit" class="btn btn-primary">提交</button>
