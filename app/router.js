@@ -97,6 +97,27 @@ module.exports = app => {
  router.get('/api/user/order',controller.default.user.order);
 
 
+ //qq上传接口
+ router.post('/api/user/uploadList',controller.default.user.uploadList);
+ //qq获取接口
+ router.get('/api/user/list',controller.default.user.list)
+
+
+
+
+
+
+
+
+
+
+
+
+ //智数金融平台接口
+ router.post('/financeAdmin/user/login',controller.default.user.login);
+ 
+
+
 
   
 

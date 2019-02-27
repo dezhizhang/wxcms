@@ -65,9 +65,81 @@ class UserController extends Controller {
             data:result
         }
 
-        
 
     }
+    //qq上传接口
+    async uploadList() {
+        this.ctx.body = {
+            code:200,
+            message:'上传成功'
+        }
+    }
+
+    //qq获取接口
+    async list() {
+        this.ctx.body = {
+            code:200,
+            message:'获取列表成功'
+        }
+    }
+
+
+
+    //智数平台用户登录
+    async login() {
+        let result = this.ctx.request.body;
+        console.log(result);
+
+
+        let data = this.ctx.model.User.find(result);
+      
+        if(result.mobile && result.code) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:null
+            }
+        } else {
+           this.ctx.body = {
+                code:500,
+                msg:"登录失败",
+                data:null
+           }
+
+        }
+
+    
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 module.exports = UserController;
