@@ -107,11 +107,28 @@ class UserController extends Controller {
 
     //qq获取接口
     async list() {
-        this.ctx.body = {
-            code:200,
-            message:'获取列表成功',
-            data:[]
+        let idNo = this.ctx.request.body.idNo;
+
+        if(idNo) {
+            let result = await this.ctx.model.List.find();
+            let total = await this.ctx.model.List.find().count()
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:{
+                    total:total,
+                    rows:result
+                }
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:'idNo是必传的参数',
+                data:{}
+            }
         }
+        
+
     }
 
 
@@ -119,9 +136,7 @@ class UserController extends Controller {
     //智数平台用户登录
     async login() {
         let result = this.ctx.request.body;
-        console.log(result);
-
-
+        
         let data = this.ctx.model.User.find(result);
       
         if(result.mobile && result.code) {

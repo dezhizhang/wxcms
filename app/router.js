@@ -99,8 +99,9 @@ module.exports = app => {
 
  //qq上传接口
  router.post('/api/user/uploadList',controller.default.user.uploadList);
- //qq获取接口
- router.get('/api/user/list',controller.default.user.list)
+
+ //我的融资订单
+ router.post('/orders/findUserOrderLists/',controller.default.user.list)
 
 
 

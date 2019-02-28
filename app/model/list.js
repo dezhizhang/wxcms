@@ -6,16 +6,11 @@ module.exports = app => {
     let d = new Date();
 
     const ListSchema = new Schema({
-        avatar:{ type:String },
-        user_name:{ type:String },
-        new_message:{ type:String },
-        message_number:{type:Number },
-        add_time:{
-            type:Number,
-            default:d.getTime()
-        }
-
-
+        bizNo:{ type:String },
+        productLogo:{type:String },
+        productName:{ type:String },
+        status:{ type:String },
+        applyAmt:{ type:String }
     })
 
     return mongoose.model('List',ListSchema,'list')
