@@ -101,7 +101,10 @@ module.exports = app => {
  router.post('/api/user/uploadList',controller.default.user.uploadList);
 
  //我的融资订单
- router.post('/orders/findUserOrderLists/',controller.default.user.list)
+ router.post('/financeEntryWebApi/orders/findUserOrderLists',controller.default.user.list)
+
+
+
 
 
 
@@ -117,6 +120,17 @@ module.exports = app => {
  //智数金融平台接口
  router.post('/financeAdmin/user/login',controller.default.user.login);
  
+ //分期产品列表
+ router.post('/financeEntryWebApi/product/list',controller.default.user.product)
+
+ //分期产品上传接口
+ router.post('/financeEntryWebApi/product/uploadList',controller.default.user.productList);
+
+ //融资订单详情
+ router.post('/financeEntryWebApi/orders/detail',controller.default.user.detail);
+
+ //用户还款计划接口
+ router.post('/financeEntryWebApi/orders/replayPlans',controller.default.user.replayPlans);
 
 
 

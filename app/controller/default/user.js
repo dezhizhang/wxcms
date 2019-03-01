@@ -107,9 +107,11 @@ class UserController extends Controller {
 
     //qq获取接口
     async list() {
-        let idNo = this.ctx.request.body.idNo;
+        let result = this.ctx.request.body;
+        let mobile = result.mobile;
 
-        if(idNo) {
+
+        if(mobile) {
             let result = await this.ctx.model.List.find();
             let total = await this.ctx.model.List.find().count()
             this.ctx.body = {
@@ -123,12 +125,115 @@ class UserController extends Controller {
         } else {
             this.ctx.body = {
                 code:404,
-                msg:'idNo是必传的参数',
+                msg:'mobile是必传的参数',
                 data:{}
             }
         }
         
 
+    }
+
+    //分期产品获取接口
+    async product() {
+        let result = this.ctx.request.body;
+
+        let data = await this.ctx.model.ProductList.find();
+        let total = await this.ctx.model.ProductList.find().count();
+        
+
+
+
+
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                total:total,
+                rows:data
+            }
+        }
+    }
+
+    //分期产品获取接口上传接口
+    async productList() {
+        let parts = this.ctx.multipart({ autoFields: true });
+        let files = {};               
+        let stream;
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {          
+            break;
+            }       
+            let fieldname = stream.fieldname;  //file表单的名字
+
+            //上传图片的目录
+            let dir=await this.service.tools.getUploadFile(stream.filename);
+            let target = dir.uploadDir;
+            let writeStream = fs.createWriteStream(target);
+
+            await pump(stream, writeStream);  
+
+            files=Object.assign(files,{
+            [fieldname]:dir.saveDir    
+            })
+            
+        }      
+
+
+        var formFields=Object.assign(files,parts.field);
+        //增加商品信息
+        let list =new this.ctx.model.ProductList(formFields);    
+        var result=await list.save();
+        this.ctx.body = {
+            code:200,
+            msg:'上传成功'
+
+        }
+    }
+
+
+    //订单详情
+    async detail() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                "bizNo":'11111',
+                "applyAmt":'12000.00',
+                "status": '审核中',
+                "term":'12',
+                "rate":'7',
+                "firstPay":'1000',
+                "everyRepay":'1050',
+                "repayWay":'等本息本',
+                "totalInterest":'500000',
+                "repayType":'线下转账还款',
+                "accountName":'深圳xxxx保险有限公司',
+                "accountId":'6236683166963636969',
+                "bankBranchName":'中国银行深圳南山分行营业部',
+            }
+        }
+    }
+
+    //用户还款计划
+    async replayPlans() {
+        let request = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                replayPlans:[
+                    {
+                        "curTerm":1,
+                        "curDueDate":'2019-3-1',
+                        "capital":'4000',
+                        "interest":'500',
+                        "totalRepayment":4500,
+                        "billStatus":'未到期/已还款/逾期/逾期已还款'
+                        }
+                ]
+            }
+        }
     }
 
 
