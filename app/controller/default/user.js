@@ -139,11 +139,6 @@ class UserController extends Controller {
 
         let data = await this.ctx.model.ProductList.find();
         let total = await this.ctx.model.ProductList.find().count();
-        
-
-
-
-
         this.ctx.body = {
             code:200,
             msg:'SUCCESS',
@@ -190,6 +185,23 @@ class UserController extends Controller {
         }
     }
 
+    async sendLoginCode() {
+        let mobile = this.ctx.request.body.mobile;
+        if(mobile) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:null
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:'传入的参数不对',
+                data:null
+            }
+        }
+    }
+
 
     //订单详情
     async detail() {
@@ -208,11 +220,32 @@ class UserController extends Controller {
                 "repayWay":'等本息本',
                 "totalInterest":'500000',
                 "repayType":'线下转账还款',
+                "interestDate":"2019-12-10",
+                "curDueDate":"5",
                 "accountName":'深圳xxxx保险有限公司',
                 "accountId":'6236683166963636969',
                 "bankBranchName":'中国银行深圳南山分行营业部',
             }
         }
+    }
+
+    //用户签名
+    async sign() {
+        let result = this.ctx.request.body;
+        if(result.sign && result.bizNo) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:null
+            }
+        } else {
+            this.ctx.body = {
+                code:500,
+                msg:'签名失败',
+                data:null
+            }
+        }
+       
     }
 
     //用户还款计划
@@ -230,11 +263,13 @@ class UserController extends Controller {
                         "interest":'500',
                         "totalRepayment":4500,
                         "billStatus":'未到期/已还款/逾期/逾期已还款'
-                        }
+                    }
                 ]
             }
         }
     }
+
+
 
 
 
@@ -244,17 +279,21 @@ class UserController extends Controller {
         
         let data = this.ctx.model.User.find(result);
       
-        if(result.mobile && result.code) {
+        if(result.mobile && result.code ==6666) {
             this.ctx.body = {
                 code:200,
                 msg:'SUCCESS',
-                data:null
+                data:{
+                    baseMatchRes:'已核身' 
+                }
             }
         } else {
            this.ctx.body = {
-                code:500,
-                msg:"登录失败",
-                data:null
+                code:200,
+                msg:"SUCCESS",
+                data:{
+                    baseMatchRes:'未核身'
+                }
            }
 
         }
@@ -262,34 +301,65 @@ class UserController extends Controller {
     
     }
 
+    //用户实名认证
+    async verifiyInfo() {
+        let mobile = this.ctx.request.body.mobile;
+        let data = await this.ctx.model.Card.find();
+    
+        if(mobile) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:data
+            }
+        }
+
+    }
+
+    //身份实别
+    async ocrVerifiy() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:null
+        }
+    }
+
+    //身份证上传接口
+    async uploadVerifiyInfo() {
+        let parts = this.ctx.multipart({ autoFields: true });
+        let files = {};               
+        let stream;
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {          
+            break;
+            }       
+            let fieldname = stream.fieldname;  //file表单的名字
+
+            //上传图片的目录
+            let dir=await this.service.tools.getUploadFile(stream.filename);
+            let target = dir.uploadDir;
+            let writeStream = fs.createWriteStream(target);
+
+            await pump(stream, writeStream);  
+
+            files=Object.assign(files,{
+            [fieldname]:dir.saveDir    
+            })
+            
+        }      
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        var formFields=Object.assign(files,parts.field);
+        //增加商品信息
+        let list =new this.ctx.model.Card(formFields);    
+        var result=await list.save();
+        this.ctx.body = {
+            code:200,
+            message:'上传成功'
+        }
+    }
 
 }
 

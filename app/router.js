@@ -131,6 +131,26 @@ module.exports = app => {
 
  //用户还款计划接口
  router.post('/financeEntryWebApi/orders/replayPlans',controller.default.user.replayPlans);
+ 
+ //用户签名
+ router.post('/financeEntryWebApi/orders/sign',controller.default.user.sign);
+ 
+ //登陆验证码获取
+ router.post('/financeEntryWebApi/user/sendLoginCode',controller.default.user.sendLoginCode);
+
+ //用户实名返显
+ router.post('/financeEntryWebApi/user/verifiyInfo',controller.default.user.verifiyInfo);
+
+ //用户实名认证
+ router.post('/financeEntryWebApi/user/ocrVerifiy',controller.default.user.ocrVerifiy);
+
+ //身份证反选上传接口
+ router.post('/financeEntryWebApi/user/uploadVerifiyInfo',controller.default.user.uploadVerifiyInfo);
+
+
+
+
+
 
 
 

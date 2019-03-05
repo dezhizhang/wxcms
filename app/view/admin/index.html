@@ -8,14 +8,13 @@
 </head>
 <body>
     <div>
-        <form action="http://localhost:7001/api/user/uploadList" method="post" enctype="multipart/form-data">
+        <form action="http://localhost:7001/financeEntryWebApi/user/uploadVerifiyInfo" method="post" enctype="multipart/form-data">
         <ul>
-        <li><span> 产品logo：</span> <input type="file" name="productLogo"/></li>
-        <li><span>产品编号：<input type="text" name="bizNo"/></span></li>
-        <li><span>产品名称：</span><input type="text" name="productName"/></li>
-        <li><span>订单状态：</span><input type="text" name="status"/></li>
-        <li><span>申请金额：</span><input type="text" name="applyAmt"/></li>
-        <li><span>审批金额：</span><input type="text" name="loanAmt"/></li>
+        <li><span> 身份证正面：</span> <input type="file" name="idCardImage"/></li>
+        <li><span>身份证反面：</span> <input type="file" name="idCardImageBack"/></li>
+        <li><span>产品名称：</span><input type="text" name="name"/></li>
+        <li><span>订单状态：</span><input type="text" name="idNo"/></li>
+
         <li>
                 <br/>
                 <button type="submit" class="btn btn-primary">提交</button>
