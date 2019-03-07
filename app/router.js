@@ -105,18 +105,6 @@ module.exports = app => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
  //智数金融平台接口
  router.post('/financeAdmin/user/login',controller.default.user.login);
  
@@ -146,6 +134,12 @@ module.exports = app => {
 
  //身份证反选上传接口
  router.post('/financeEntryWebApi/user/uploadVerifiyInfo',controller.default.user.uploadVerifiyInfo);
+
+ //上脸识别上传接口
+ router.post('/financeEntryWebApi/user/uploadFaceInfo',controller.default.user.uploadFaceInfo);
+
+
+
 
 
 
