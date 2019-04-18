@@ -138,8 +138,27 @@ module.exports = app => {
  //上脸识别上传接口
  router.post('/financeEntryWebApi/user/uploadFaceInfo',controller.default.user.uploadFaceInfo);
 
+
+
+
+
+
+
+
+ //核身小程序
  //动态码校验接口
  router.post('/financeEntrySystemApi/v1/users/verifyAuthCode',controller.default.nuclear.verifyAuthCode);
+
+ //实名认证反显
+ router.get('/financeEntrySystemApi/v1/users/verifiyInfo',controller.default.nuclear.verifiyInfo);
+
+ //身体上传
+ router.post('/financeEntrySystemApi/verify/ocrVerify',controller.default.nuclear.ocrVerify);
+
+ //人脸识别
+ router.post('/financeEntrySystemApi/verify/faceVerify',controller.default.nuclear.faceVerify)
+
+
 
 
 

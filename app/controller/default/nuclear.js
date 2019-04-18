@@ -57,8 +57,10 @@ class NuclearController extends Controller {
        if(result.code) {
         this.ctx.body = {
             code:200,
-            msg:'校验成功',
-            data:null
+            msg:'SUCCESS',
+            data:{
+                userNo:'123456' 
+            }
         }
        } else {
             this.ctx.body = {
@@ -67,11 +69,103 @@ class NuclearController extends Controller {
                 data:null
             }
        }
-      
-
     }
+    //身分让反显
+    async verifiyInfo() {
+        let result = this.ctx.query;
 
-  
+        if(result.userNo) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:{
+                    companyName:'广州智数',
+                    username:'张三',
+                    idNo:'441323199604017455'
+                }
+            }
+        } else {
+            this.ctx.body = {
+                code:500,
+                msg:"FAIL",
+                data:null
+            }
+        }
+    
+    }
+    //身份证上传
+    async ocrVerify() {
+        let parts = this.ctx.multipart({ autoFields: true });
+        let files = {};               
+        let stream;
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {          
+            break;
+            }       
+            let fieldname = stream.fieldname;  //file表单的名字
+
+            //上传图片的目录
+            let dir=await this.service.tools.getUploadFile(stream.filename);
+            let target = dir.uploadDir;
+            let writeStream = fs.createWriteStream(target);
+
+            await pump(stream, writeStream);  
+
+            files=Object.assign(files,{
+              [fieldname]:dir.saveDir    
+            })
+            
+        }      
+
+
+        var formFields=Object.assign(files,parts.field);
+        //增加商品信息
+        let list =new this.ctx.model.Card(formFields); 
+        console.log(formFields);
+
+        var result=await list.save();
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:'认证通过'
+        }
+    }
+    async faceVerify() {
+        let parts = this.ctx.multipart({ autoFields: true });
+        let files = {};               
+        let stream;
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {          
+            break;
+            }       
+            let fieldname = stream.fieldname;  //file表单的名字
+
+            //上传图片的目录
+            let dir=await this.service.tools.getUploadFile(stream.filename);
+            let target = dir.uploadDir;
+            let writeStream = fs.createWriteStream(target);
+
+            await pump(stream, writeStream);  
+
+            files=Object.assign(files,{
+              [fieldname]:dir.saveDir    
+            })
+            
+        }      
+
+
+        var formFields=Object.assign(files,parts.field);
+        //增加商品信息
+        let list =new this.ctx.model.Card(formFields); 
+        console.log(formFields);
+
+        var result=await list.save();
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:'认证通过'
+        }
+    }
 }
 
 
