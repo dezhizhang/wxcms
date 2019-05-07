@@ -160,10 +160,15 @@ class NuclearController extends Controller {
         console.log(formFields);
 
         var result=await list.save();
+        // this.ctx.body = {
+        //     code:500,
+        //     msg:'SUCCESS',
+        //     data:'认证通过'
+        // }
         this.ctx.body = {
-            code:200,
-            msg:'SUCCESS',
-            data:'认证通过'
+            code:400,
+            msg:'照片格式不符，请重新上传',
+            data:null
         }
     }
 }
