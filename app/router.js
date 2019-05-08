@@ -135,7 +135,9 @@ module.exports = app => {
  router.get('/financeAdmin/systemUser/MenuList',controller.default.finance.menuList);
 
  //
- router.get('/financeAdmin/financeOrder/list',controller.default.finance.list);
+
+ //融资订单列表
+ router.get('/financeAdmin/financeOrder/list',controller.default.finance.orderList);
 
  //用户登录
  router.post('/financeAdmin/systemUser/login',controller.default.finance.login);
@@ -152,25 +154,36 @@ module.exports = app => {
  //修改管理员
  router.post('/financeAdmin/admin/update',controller.default.finance.adminUpdate);
  //获取所有角色
- router.get('/api/role/list',controller.default.finance.roleList);
+ router.get('/financeAdmin/api/role/list',controller.default.finance.roleList);
  //查看角色信息
- router.get('/api/role/detail',controller.default.finance.roleDetail);
+ router.get('/financeAdmin/api/role/detail',controller.default.finance.roleDetail);
  //新增角色
- router.post('/api/role/add',controller.default.finance.roleAdd);
+ router.post('/financeAdmin/api/role/add',controller.default.finance.roleAdd);
  //删除角色
- router.post('/api/role/delete',controller.default.finance.roleDelete);
+ router.post('/financeAdmin/api/role/delete',controller.default.finance.roleDelete);
  //更新角色
- router.post('/api/role/update',controller.default.finance.roleUpdate);
+ router.post('/financeAdmin/api/role/update',controller.default.finance.roleUpdate);
  //修改登录密码
  router.post('/financeAdmin/user/changePassword',controller.default.finance.changePassword);
  //修改交易密
  router.post('/financeAdmin/audit/changePin',controller.default.finance.changePin);
  //个人账号管理
  router.get('/financeAdmin/sysUser/info',controller.default.finance.sysUserInfo);
- //融资订单列表
- router.post('/financeAdmin/financeOrder/list',controller.default.finance.orderList);
+  //融资订筛选
+ router.post('/financeAdmin/financeOrder/list',controller.default.finance.orderListSearch);
  //融资订单详细信息
  router.get('/financeAdmin/financeOrder/info',controller.default.finance.orderInfo);
+ //融资人详细信息
+ router.get('/financeAdmin/financeOrder/user',controller.default.finance.orderUser);
+ //用户信息列表
+ router.post('/financeAdmin/userManagement/list',controller.default.finance.userList);
+ //用户详细信息
+ router.get('/financeAdmin/user/info',controller.default.finance.userInfo);
+ //用户列表(企业)
+ router.get('/financeAdmin/user/enterprise/list',controller.default.finance.enterpriseList);
+ //用户详情
+ router.get('/financeAdmin/user/enterprise/info/',controller.default.finance.enterpriseInfo);
+ 
 
 
 
