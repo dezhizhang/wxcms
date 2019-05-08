@@ -133,12 +133,8 @@ module.exports = app => {
  //中控系统接口
  //加载菜单
  router.get('/financeAdmin/systemUser/MenuList',controller.default.finance.menuList);
-
- //
-
  //融资订单列表
  router.get('/financeAdmin/financeOrder/list',controller.default.finance.orderList);
-
  //用户登录
  router.post('/financeAdmin/systemUser/login',controller.default.finance.login);
  //审核列表
@@ -183,7 +179,7 @@ module.exports = app => {
  router.get('/financeAdmin/user/enterprise/list',controller.default.finance.enterpriseList);
  //用户详情
  router.get('/financeAdmin/user/enterprise/info/',controller.default.finance.enterpriseInfo);
- 
+
 
 
 

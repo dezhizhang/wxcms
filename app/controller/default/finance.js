@@ -488,6 +488,8 @@ class FinanceController extends Controller {
     //用户信息列表
     async userList() {
         let result = this.ctx.request.body;
+        console.log(result);
+        
         this.ctx.body = {
             code:200,
             msg:'SUCCESS',
