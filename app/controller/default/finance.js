@@ -489,7 +489,7 @@ class FinanceController extends Controller {
     async userList() {
         let result = this.ctx.request.body;
         console.log(result);
-        
+
         this.ctx.body = {
             code:200,
             msg:'SUCCESS',
@@ -631,6 +631,196 @@ class FinanceController extends Controller {
             }
         }
     }
+    //获取所有模块
+    async moduleList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                total: 2,
+                rows: [{
+                        "id": 1,
+                        "moduleName": "xxx模块",
+                        "isAvailable": true,
+                        "loginUrl": "http://192.168.1.1:2222/login?sdfsdfsdf",
+                        "supportPerson": "张三丰",
+                        "createdTime": "2019-04-16 15:32:17",
+                        "desc": "我是一段描述",
+                        "configId": 1,
+                        "isBelongSso": false,
+                        "moduleUrl": "http://192.168.1.1:2222/sysRisk",
+                        "smallPic": "http://xxx.xxx.x.x:8888/pic.png",
+                        "defaultPage": "/user/index.html",
+                        "zorder": 1
+                    },
+                    {
+                        "id": 2,
+                        "moduleName": "xxx模块",
+                        "isAvailable": true,
+                        "loginUrl": "http://192.168.1.1:2222/login?sdfsdfsdf",
+                        "supportPerson": "张三丰",
+                        "createdTime": "2019-04-16 15:32:17",
+                        "desc": "我是一段描述",
+                        "configId": 1,
+                        "isBelongSso": false,
+                        "moduleUrl": "http://192.168.1.1:2222/sysRisk",
+                        "smallPic": "http://xxx.xxx.x.x:8888/pic.png",
+                        "defaultPage": "/user/index.html",
+                        "zorder": 1
+                    }
+                ]
+            }
+        }
+    }
+    //查看模块信息
+    async moduleDetail() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                "id": 1,
+                "moduleName": "xxx模块",
+                "isAvailable": true,
+                "loginUrl": "http://192.168.1.1:2222/login?sdfsdfsdf",
+                "supportPerson": "张三丰",
+                "createdTime": "2019-04-16 15:32:17",
+                "desc": "我是一段描述",
+                "configId": 1,
+                "isBelongSso": false,
+                "moduleUrl": "http://192.168.1.1:2222/sysRisk",
+                "smallPic": "http://xxx.xxx.x.x:8888/pic.png",
+                "defaultPage": "/user/index.html",
+                "zorder": 1
+            }
+        }
+
+    }
+    //增加模块接口
+    async moduleAdd() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                "moduleName": "xxx模块",
+                "isAvailable": true,
+                "loginUrl": "http://192.168.1.1:2222/login?sdfsdfsdf",
+                "supportPerson": "张三丰",
+                "desc": "我是一段描述",
+                "configId": 1,
+                "isBelongSso": false,
+                "moduleUrl": "http://192.168.1.1:2222/sysRisk",
+                "smallPic": "http://xxx.xxx.x.x:8888/pic.png",
+                "defaultPage": "/user/index.html",
+                "zorder": 1
+            }
+        }
+    }
+    //删除模块
+    async moduleDelete() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'删除成功',
+        }
+    }
+    //更新模块
+    async moduleUpdate() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                "id": 1,
+                "moduleName": "xxx模块",
+                "isAvailable": true,
+                "loginUrl": "http://192.168.1.1:2222/login?sdfsdfsdf",
+                "supportPerson": "张三丰",
+                "desc": "我是一段描述",
+                "configId": 1,
+                "isBelongSso": false,
+                "moduleUrl": "http://192.168.1.1:2222/sysRisk",
+                "smallPic": "http://xxx.xxx.x.x:8888/pic.png",
+                "defaultPage": "/user/index.html",
+                "zorder": 1
+            }
+        }
+    }
+    //查看所有用户组
+    async userGroupList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                total: 300,
+                rows: [{
+                            "id": 2,
+                            "name": "业务组b",
+                            "description": "这是业务组的描述",
+                            "enterpriseId": "11133",
+                            "enterpriseNo": "T333erwer3333",
+                            "createdBy": "关云长",
+                            "updatedBy": "关云长",
+                            "isAvailable": false,
+                            "groupNo": "G2238ddew3737",
+                            "displayName": "用户组显示。",
+                            "channelNo": "ch000001",
+                            "channelType": "1",
+                            "parentGroupId": 22222,
+                            "groupLvl": 1,
+                            "tenantNo": "t1000000001"
+                        },
+                        {
+                            "id": 2,
+                            "name": "业务组b",
+                            "description": "这是业务组的描述",
+                            "enterpriseId": "11133",
+                            "enterpriseNo": "T333erwer3333",
+                            "createdBy": "关云长",
+                            "updatedBy": "关云长",
+                            "isAvailable": false,
+                            "groupNo": "G2238ddew3737",
+                            "displayName": "用户组显示。",
+                            "channelNo": "ch000001",
+                            "channelType": "1",
+                            "parentGroupId": 22222,
+                            "groupLvl": 1,
+                            "tenantNo": "t1000000001"
+                    }
+                ]
+            }
+        }
+    }
+    //新增用户组
+    async userGroupAdd() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                "name": "业务组a",
+                "description": "这是业务组的描述",
+                "enterpriseNo": "T3333333",
+                "createdBy": "关云长",
+                "updatedBy": "关云长",
+                "isAvailable": true,
+                "groupNo": "G22383737",
+                "displayName": "用户组显示"
+            }
+        }
+    }
+    //用户组角色更新 
+    async userGroupUpdate() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:"修改成功"
+        }
+    }
+
 
 }
 

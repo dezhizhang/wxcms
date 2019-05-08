@@ -178,9 +178,23 @@ module.exports = app => {
  //用户列表(企业)
  router.get('/financeAdmin/user/enterprise/list',controller.default.finance.enterpriseList);
  //用户详情
- router.get('/financeAdmin/user/enterprise/info/',controller.default.finance.enterpriseInfo);
-
-
+ router.get('/financeAdmin/user/enterprise/info',controller.default.finance.enterpriseInfo);
+ //获取所有模块
+ router.get('/financeAdmin/api/module/list',controller.default.finance.moduleList);
+ //查看模块信息
+ router.get('/financeAdmin/api/module/detail',controller.default.finance.moduleDetail);
+ //增加模块
+ router.post('/financeAdmin/api/module/add',controller.default.finance.moduleAdd);
+ //删除模块
+ router.get('/financeAdmin/api/module/delete',controller.default.finance.moduleDelete);
+ //更新模块
+ router.post('/financeAdmin/api/module/update',controller.default.finance.moduleUpdate);
+ //查看所有用户
+ router.get('/financeAdmin/api/usergroup/list',controller.default.finance.userGroupList);
+ //新增用户组
+ router.post('/financeAdmin/api/usergroup/add',controller.default.finance.userGroupAdd);
+ //用户组角色更新 
+ router.post('/financeAdmin/api/usergroup/update',controller.default.finance.userGroupUpdate)
 
 
 
