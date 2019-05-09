@@ -342,62 +342,82 @@ class FinanceController extends Controller {
             code:200,
             msg:'SUCCESS',
             data:{
-                accountInfo: [{
-                    "accountType": "收款账户",
-                    "accountName": "123",
-                    "accountId": "123",
-                    "bankNo": "test ",
-                    "bankProv": null,
-                    "bankCity": null,
-                    "bankBranchName": null
-                }, {
-                    "accountType": "还款账户",
-                    "accountName": "123",
-                    "accountId": "123",
-                    "bankNo": "test",
-                    "bankProv": null,
-                    "bankCity": null,
-                    "bankBranchName": null
-                }],
-                "orderDetails": {
-                    "customerNo": "123",
-                    "userNo": "123",
-                    "assetChannelNo": "123",
-                    "assetChannelName": "test",
-                    "userName": "123",
-                    "userType": "个人",
-                    "applyTime": 1547481600000,
-                    "productName": "test",
-                    "typeName": "test",
-                    "bizNo": "123",
-                    "applyAmt": "10000.00",
-                    "loanAmt": "100000.00",
-                    "termType": "多期",
-                    "repayLimit": "8",
-                    "interestDate": 1547481600000,
-                    "dueDate": 1548950400000,
-                    "totalRepay": "90000.00",
-                    "repayDesc": null,
-                    "realAmt": "80000.00",
-                    "interestRate": "0.5000",
-                    "status": "审核通过"
-                },
-                "attachInfo": [{
-                    "attType": "借款合同",
-                    "attName": "test",
-                    "attCtxNo": "123",
-                    "fileId": "1"
-                }],
-                "repayPlans": [{
-                    "curTerm": "2",
+               
+                repaymentPlan: [{
+                    "curTerm": "12",
                     "curDueDate": 1547481600000,
                     "totalRepayment": "10000.00",
-                    "capital": "9000.00",
-                    "interest": "1000.00",
-                    "hadRepayment": "10000.00",
-                    "billStatus": "未到期",
-                    "repaySuccessDate": null,
-                    "remark": null
+                    "capital": "1000",
+                    "XiFei": "1000.00",
+                    "interest":"100",
+                    "repaySuccessDate": 1547481600000,
+                    "billStatus":"还款中"
+
+                }],
+                orderInfo: {
+                    "bizNo": "123",
+                    "repaymentType": "等本等算成",
+                    "applyAmt": "10000.00",
+                    "interestRate": "0.05",
+                    "applyTime": 1547481600000,
+                    "repayLimit": 12,
+                    "modle":"线上代扣",
+                    "cost": "10000",
+                    "interestDate": 1547481600000,
+                    "dueDate": 1547481600000,
+                    "planDate": 1547481600000,
+                    "orderStatus": "还款中",
+                },
+                attachInfo: [{
+                    "attType": "借款合同",
+                    "attCtxNo": "test",
+                    "taddy": "张三",
+                    "attFile": "1"
+                }],
+                basicInfo:{
+                    "basicInfo": "张三",
+                    "userNo": "1547481600000",
+                    "customerNo": "554254241541",
+                    "assetChannelNo": "456521251224",
+                    "userName": "王五",
+                    "assetChannelName": "小智",
+                    "userType": "普通用户",
+                    "applyTime": "2019-0-12",
+                    "productName": "分期产品",
+                    "typeName":"分期"
+                },
+                contractInfo:[{
+                    "attType":"合同",
+                    "attCtxNo":"12345",
+                    "attFile":"3125"
+                }],
+                paymentAccount:[{
+                    "isPayment":true,
+                    "accountName":"张三",
+                    "accountId":"1234566",
+                    "accoutBank":"中国银行",
+                    "openingBank":"中行",
+                    "unionpayNo":"637719"
+                }],
+                repaymentAccount:[{
+                    "isPayment":false,
+                    "accountName":"李四",
+                    "accountId":"661369",
+                    "accoutBank":"中国农行",
+                    "openingBank":"农行",
+                    "unionpayNo":"65413542"
+                }],
+                subjectInfo:[{
+                    "subjectType":"商品",
+                    "subjectNum":100,
+                    "handle":"抵压"
+                }],
+                auditRecords:[{
+                    "auditRole":"管理员",
+                    "auditor":"李四",
+                    "auditTime":1547481600000,
+                    "auditRes":"通过",
+                    "remark":"张三审核"
                 }]
             }
         }
@@ -820,8 +840,7 @@ class FinanceController extends Controller {
             msg:"修改成功"
         }
     }
-
-
+  
 }
 
 

@@ -194,7 +194,8 @@ module.exports = app => {
  //新增用户组
  router.post('/financeAdmin/api/usergroup/add',controller.default.finance.userGroupAdd);
  //用户组角色更新 
- router.post('/financeAdmin/api/usergroup/update',controller.default.finance.userGroupUpdate)
+ router.post('/financeAdmin/api/usergroup/update',controller.default.finance.userGroupUpdate);
+
 
 
 
