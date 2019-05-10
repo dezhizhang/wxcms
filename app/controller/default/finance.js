@@ -840,6 +840,374 @@ class FinanceController extends Controller {
             msg:"修改成功"
         }
     }
+    //标的物
+    async carInfo() {
+        let result = this.ctx.request.body;
+        let d = new Date()
+        
+        if(result.licensePlate == '') {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:    [{
+                    "licensePlate":"5545888",
+                    "ownership":"张三",
+                    "vinCode":"123",
+                    "engineNo":"123456",
+                    "brandModel":"大众",
+                    "carCurrentAmt":10000.00,
+                    "registryDate":d.getTime(),
+                    "carAge":"10",
+                    "seatNumber":7,
+                    "travelLicenseNo":"张三",
+                    "travelLicenseFront":"张三",
+                    "travelLicenseBack":"123456",
+                    "insuranceNo":"12346",
+                    "attList":"合同符附件"
+                },{
+                    
+                        "licensePlate":"5545888",
+                        "ownership":"张三",
+                        "vinCode":"123",
+                        "engineNo":"123456",
+                        "brandModel":"大众",
+                        "carCurrentAmt":10000.00,
+                        "registryDate":d.getTime(),
+                        "carAge":"10",
+                        "seatNumber":7,
+                        "travelLicenseNo":"张三",
+                        "travelLicenseFront":"张三",
+                        "travelLicenseBack":"123456",
+                        "insuranceNo":"12346",
+                        "attList":"合同符附件"
+                    
+                }]
+                
+            }
+        } else {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:    [{
+                    "licensePlate":"5545888",
+                    "ownership":"张三",
+                    "vinCode":"123",
+                    "engineNo":"123456",
+                    "brandModel":"大众",
+                    "carCurrentAmt":10000.00,
+                    "registryDate":d.getTime(),
+                    "carAge":"10",
+                    "seatNumber":7,
+                    "travelLicenseNo":"张三",
+                    "travelLicenseFront":"张三",
+                    "travelLicenseBack":"123456",
+                    "insuranceNo":"12346",
+                    "attList":"合同符附件"
+                }]
+                
+            }
+        }
+        
+    }
+    //单标的物
+    async policyInfo() {
+        let result = this.ctx.request.body;
+        console.log(result);
+
+        if(result.insuranceNo == '') {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:[{
+                    "insuranceNo":"123456",
+                    "bizInsuranceNo":"122",
+                    "bizPremium":"100",
+                    "bizTime":"2019-2020",
+                    "forceInsuPolicyNo":"1233456",
+                    "forceInsuPremium":"100",
+                    "forceInsuTime":"2019-2024",
+                    "carTaxAmount":	100.00,
+                    "insureLetter":80.00,
+                    "totalPremium":1000.00,
+                    "specialClause":"张三",
+                    "policyholderName":"李四",
+                    "policyholderCard":"123456",
+                    "policyholderMobile":"15083356191",
+                    "policyholderIdcardFront":"52020219980102701X",
+                    "policyholderIdcardBack":"广州",
+                    "insuredName":"周华建",
+                    "insuredCard":"14312",
+                    "insuredMobile":"15083356194",
+                    "insuredCertFront":"18356160",
+                    "insuredCertBack":"5020201645241",
+                    "carOwnerName":"王五",
+                    "carOwnerCard":	"41235",
+                    "carMobile":"17542996",
+                    "carCertFront":"15409448",
+                    "carCertBack":"5210155",
+                    "riskCode":	"1234556",
+                    "riskName":"商业险",
+                    "insuranceNumber":"马六",
+                    "everyCoverage":"123",
+                    "totalCoverage":"1000",
+                    "notDeductibleMark":"456",
+                    "riskAddType":"7654",
+                    "bankName":"中国银行",
+                    "bankProv":"广州省",
+                    "bankCity":"广州市",
+                    "bankBranchName":"广州分行",
+                    "accountName":"马六",
+                    "accountId":"12345",
+                    "destInsuranceNo":"4562",
+                    "destBizInsuranceNo":"7654545",
+                    "destBizInsuranceSts":"123456",
+                    "destForceInsuPolicyNo":"6542020",
+                    "destForceInsuPolicySts":"123456",
+                    "onlineInvoiceLink":"654121"
+                },
+                {
+                    "insuranceNo":"123456",
+                    "bizInsuranceNo":"122",
+                    "bizPremium":"100",
+                    "bizTime":"2019-2020",
+                    "forceInsuPolicyNo":"1233456",
+                    "forceInsuPremium":"100",
+                    "forceInsuTime":"2019-2024",
+                    "carTaxAmount":	100.00,
+                    "insureLetter":80.00,
+                    "totalPremium":1000.00,
+                    "specialClause":"张三",
+                    "policyholderName":"李四",
+                    "policyholderCard":"123456",
+                    "policyholderMobile":"15083356191",
+                    "policyholderIdcardFront":"52020219980102701X",
+                    "policyholderIdcardBack":"广州",
+                    "insuredName":"周华建",
+                    "insuredCard":"14312",
+                    "insuredMobile":"15083356194",
+                    "insuredCertFront":"18356160",
+                    "insuredCertBack":"5020201645241",
+                    "carOwnerName":"王五",
+                    "carOwnerCard":	"41235",
+                    "carMobile":"17542996",
+                    "carCertFront":"15409448",
+                    "carCertBack":"5210155",
+                    "riskCode":	"1234556",
+                    "riskName":"商业险",
+                    "insuranceNumber":"马六",
+                    "everyCoverage":"123",
+                    "totalCoverage":"1000",
+                    "notDeductibleMark":"456",
+                    "riskAddType":"7654",
+                    "bankName":"中国银行",
+                    "bankProv":"广东省",
+                    "bankCity":"广州市",
+                    "bankBranchName":"广州分行",
+                    "accountName":"马六",
+                    "accountId":"12345",
+                    "destInsuranceNo":"4562",
+                    "destBizInsuranceNo":"7654545",
+                    "destBizInsuranceSts":"123456",
+                    "destForceInsuPolicyNo":"6542020",
+                    "destForceInsuPolicySts":"123456",
+                    "onlineInvoiceLink":"654121"
+                },
+                {
+                    "insuranceNo":"123456",
+                    "bizInsuranceNo":"122",
+                    "bizPremium":"100",
+                    "bizTime":"2019-2020",
+                    "forceInsuPolicyNo":"1233456",
+                    "forceInsuPremium":"100",
+                    "forceInsuTime":"2019-2024",
+                    "carTaxAmount":	100.00,
+                    "insureLetter":80.00,
+                    "totalPremium":1000.00,
+                    "specialClause":"张三",
+                    "policyholderName":"李四",
+                    "policyholderCard":"123456",
+                    "policyholderMobile":"15083356191",
+                    "policyholderIdcardFront":"52020219980102701X",
+                    "policyholderIdcardBack":"广州",
+                    "insuredName":"周华建",
+                    "insuredCard":"14312",
+                    "insuredMobile":"15083356194",
+                    "insuredCertFront":"18356160",
+                    "insuredCertBack":"5020201645241",
+                    "carOwnerName":"王五",
+                    "carOwnerCard":	"41235",
+                    "carMobile":"17542996",
+                    "carCertFront":"15409448",
+                    "carCertBack":"5210155",
+                    "riskCode":	"1234556",
+                    "riskName":"商业险",
+                    "insuranceNumber":"马六",
+                    "everyCoverage":"123",
+                    "totalCoverage":"1000",
+                    "notDeductibleMark":"456",
+                    "riskAddType":"7654",
+                    "bankName":"中国银行",
+                    "bankProv":"广州省",
+                    "bankCity":"广州市",
+                    "bankBranchName":"广州分行",
+                    "accountName":"马六",
+                    "accountId":"12345",
+                    "destInsuranceNo":"4562",
+                    "destBizInsuranceNo":"7654545",
+                    "destBizInsuranceSts":"123456",
+                    "destForceInsuPolicyNo":"6542020",
+                    "destForceInsuPolicySts":"123456",
+                    "onlineInvoiceLink":"654121"
+                }]
+            }
+       
+        }  else {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:[{
+                    "insuranceNo":"123456",
+                    "bizInsuranceNo":"122",
+                    "bizPremium":"100",
+                    "bizTime":"2019-2020",
+                    "forceInsuPolicyNo":"1233456",
+                    "forceInsuPremium":"100",
+                    "forceInsuTime":"2019-2024",
+                    "carTaxAmount":	100.00,
+                    "insureLetter":80.00,
+                    "totalPremium":1000.00,
+                    "specialClause":"张三",
+                    "policyholderName":"李四",
+                    "policyholderCard":"123456",
+                    "policyholderMobile":"15083356191",
+                    "policyholderIdcardFront":"52020219980102701X",
+                    "policyholderIdcardBack":"广州",
+                    "insuredName":"周华建",
+                    "insuredCard":"14312",
+                    "insuredMobile":"15083356194",
+                    "insuredCertFront":"18356160",
+                    "insuredCertBack":"5020201645241",
+                    "carOwnerName":"王五",
+                    "carOwnerCard":	"41235",
+                    "carMobile":"17542996",
+                    "carCertFront":"15409448",
+                    "carCertBack":"5210155",
+                    "riskCode":	"1234556",
+                    "riskName":"商业险",
+                    "insuranceNumber":"马六",
+                    "everyCoverage":"123",
+                    "totalCoverage":"1000",
+                    "notDeductibleMark":"456",
+                    "riskAddType":"7654",
+                    "bankName":"中国银行",
+                    "bankProv":"广州省",
+                    "bankCity":"广州市",
+                    "bankBranchName":"广州分行",
+                    "accountName":"马六",
+                    "accountId":"12345",
+                    "destInsuranceNo":"4562",
+                    "destBizInsuranceNo":"7654545",
+                    "destBizInsuranceSts":"123456",
+                    "destForceInsuPolicyNo":"6542020",
+                    "destForceInsuPolicySts":"123456",
+                    "onlineInvoiceLink":"654121"
+                }]
+            }
+        }
+    }
+    //获取所有角色
+    async getAllRoleList() {
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "name": "业管",
+                    "id": 1
+                },
+                {
+                    "name": "管理员",
+                    "id": 2
+                },
+                {
+                    "name": "超级管理员",
+                    "id": 3
+                }
+            ]
+        }
+    }
+    //
+    async managementUser() {
+        let result = this.ctx.request.body;
+        console.log(result)
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                userBasicInfo: {
+                    "userNo":"LPC12012018001",
+                    "channelName":"中安",
+                    "userType":"个人",
+                    "userName":"陈晓玩",
+                    "cardType":"身份证",
+                    "idNo":"445381****9999",
+                    "mobile":"138****1111",
+                    "creditScore":"701"
+                },
+                identityVerifyInfo:{
+                    "name":"陈晓玩",
+                    "isIdentityMatch":"通过",
+                    "idNo":"44018****5043",
+                    "OCR":"通过",
+                    "mobile":"13829110414",
+                    "faceRecDegree":"87.6%",
+                    "creditAuthResult":"无附件",
+                    "creditAuthId":"查看附件",
+                    "IDCardFront":"查看附件",
+                    "IDCardBack":"查看附件",
+                    "frontFaceId":"查看附件"
+                },
+                addUserInfo:{
+                    "liveStatus":"自有住房",
+                    "liveAddr":"广州天河区..",
+                    "carInfo":"名下有车,无贷款",
+                    "eduInfo":"本科",
+                    "occupationType":"—",
+                    "incomeFrom":"工资",
+                    "unitName":"龙腾生物有限公司",
+                    "unitTel":"020-88212921",
+                    "position":"—",
+                    "operatingYear":"10年",
+                    "bizFlow":"—",
+                    "monthIncome":"￥12,000.00",
+                    "acctepMaxRepay":"—",
+                    "operatYear":"-",
+                    "payedSocial":"是",
+                    "yearIncome":"14.4",
+                    "gpsInfo":"—",
+                    "ipAddr":"—",
+                    "marrInfo":"已婚"
+                },
+                mateUserInfo:{
+                    "mateName":"陈敏",
+                    "mateIdNo":"440511198802214341",
+                    "mateIncomeFrom":"工资",
+                    "mateMobile":"13450228111",
+                    "mateYearIncome":"10",
+                    "mateUnit":"心形科技有限公司"
+                },
+                
+                contactUserInfo:{
+                    "firstContactName":"丁叮",
+                    "firstContactRel":"朋友",
+                    "firstContactMobile":"1997653212",
+                    "secondContactName":"陈晓明",
+                    "secondContactRel":"兄弟",
+                    "secondContactMobile":"13687601921"
+                }
+            }
+        }
+    }
   
 }
 

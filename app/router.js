@@ -195,6 +195,16 @@ module.exports = app => {
  router.post('/financeAdmin/api/usergroup/add',controller.default.finance.userGroupAdd);
  //用户组角色更新 
  router.post('/financeAdmin/api/usergroup/update',controller.default.finance.userGroupUpdate);
+ //的物详情-车俩
+ router.post('/financeAdmin/financeManagement/carInfo',controller.default.finance.carInfo);
+ //融资订单标的物-投保单
+ router.post('/financeAdmin/financeManagement/policyInfo',controller.default.finance.policyInfo);
+ //获取所有角色
+ router.get('/financeAdmin/role/getAllRoleList',controller.default.finance.getAllRoleList);
+ //融资人详细信息
+ router.post('/financeAdmin/financeManagement/user',controller.default.finance.managementUser);
+ 
+
 
 
 
