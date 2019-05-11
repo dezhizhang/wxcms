@@ -143,12 +143,16 @@ module.exports = app => {
  router.post('/financeAdmin/audit/addConfig',controller.default.finance.addConfig);
  //修改审核配
  router.post('/financeAdmin/audit/update',controller.default.finance.auditUpdate);
+ //审核详情查看
+ router.get('/financeAdmin/audit/info/',controller.default.finance.auditInfo);
  //管理员列表
  router.get('/financeAdmin/admin/list',controller.default.finance.adminList);
  //新增管理员列表
  router.post('/financeAdmin/admin/add',controller.default.finance.adminAdd);
  //修改管理员
  router.post('/financeAdmin/admin/update',controller.default.finance.adminUpdate);
+ //删除管理员
+ router.get('/financeAdmin/admin/delete',controller.default.finance.adminDelete);
  //获取所有角色
  router.get('/financeAdmin/api/role/list',controller.default.finance.roleList);
  //查看角色信息
@@ -203,13 +207,10 @@ module.exports = app => {
  router.get('/financeAdmin/role/getAllRoleList',controller.default.finance.getAllRoleList);
  //融资人详细信息
  router.post('/financeAdmin/financeManagement/user',controller.default.finance.managementUser);
-
-
- 
-
-
-
-
+ //审核配置层级删除
+ router.get('/financeAdmin/audit/delete',controller.default.finance.auditDelete);
+ //锁定/禁用管理员
+ router.get('/financeAdmin/admin/lock',controller.default.finance.adminLock);
 
 
 

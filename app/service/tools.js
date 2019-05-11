@@ -40,8 +40,6 @@ class  ToolsService extends Service {
           saveDir:uploadDir.slice(3).replace(/\\/g,'/')
   
         }
-  
-  
     }
 
    

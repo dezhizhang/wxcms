@@ -35,34 +35,58 @@ class FinanceController extends Controller {
 
     //审核列表
     async auditList() {
-        let result = this.ctx.query
-        this.ctx.body = {
-            code:200,
-            msg:'SUCCESS',
-            data:{
-                total:2,
-                rows:[
-                    {
-                        'accountId':'1',
-                        'assetsChannel':'管理员a',
-                        'type':'中控-超管',
-                        'cengJi':'蔡xx',
-                        'phone':'138000138000',
-                        'status':'0',
-                        'lastLoginTime':'2019-04-03 11:33:22'
-                    },
-                    {
-                        "accountId":"2",
-                        "assetsChannel":"管理员a",
-                        "type":"中控-超管",
-                        "cengJi":"关云长",
-                        "phone":"138000138000",
-                        "status":"1",
-                        "lastLoginTime":"2019-04-03 11:33:22"
-                    }
-                ]
+        let result = this.ctx.query;
+        console.log(result);
+        if(result.qudao!='ALL') {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:{
+                    total:2,
+                    rows:[
+                        {
+                            "accountId":"2",
+                            "assetsChannel":"管理员a",
+                            "type":"中控-超管",
+                            "cengJi":"关云长",
+                            "phone":"138000138000",
+                            "status":"1",
+                            "lastLoginTime":"2019-04-03 11:33:22"
+                        }
+                    ]
+                }
+            }
+        } else {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:{
+                    total:2,
+                    rows:[
+                        {
+                            'accountId':'1',
+                            'assetsChannel':'管理员a',
+                            'type':'中控-超管',
+                            'cengJi':'蔡xx',
+                            'phone':'138000138000',
+                            'status':'0',
+                            'lastLoginTime':'2019-04-03 11:33:22'
+                        },
+                        {
+                            "accountId":"2",
+                            "assetsChannel":"管理员a",
+                            "type":"中控-超管",
+                            "cengJi":"关云长",
+                            "phone":"138000138000",
+                            "status":"1",
+                            "lastLoginTime":"2019-04-03 11:33:22"
+                        }
+                    ]
+                }
             }
         }
+
+      
     }
     //新建审核配置
     async addConfig() {
@@ -99,7 +123,8 @@ class FinanceController extends Controller {
     //管理员列表
     async adminList() {
         let result = this.ctx.query;
-        if(result.limit) {
+    
+        if(result.limit ) {
             this.ctx.body = {
                 code:200,
                 msg:'SUCCESS',
@@ -236,7 +261,7 @@ class FinanceController extends Controller {
                 code:200,
                 msg:'SUCCESS',
                 data: {
-                    "total": 22,
+                    "total": 2,
                     "list": [
                         {
                             "id": 2,
@@ -289,7 +314,45 @@ class FinanceController extends Controller {
     }
     //新增管理员
     async adminAdd() {
-        let result = this.ctx.request.body;
+        let parts = this.ctx.multipart({ autoFields: true });
+        let files = {};               
+        let stream;
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {          
+            break;
+            }       
+            let fieldname = stream.fieldname;  //file表单的名字
+
+            //上传图片的目录
+            let dir=await this.service.tools.getUploadFile(stream.filename);
+            let target = dir.uploadDir;
+            let writeStream = fs.createWriteStream(target);
+
+            await pump(stream, writeStream);  
+
+            files=Object.assign(files,{
+            [fieldname]:dir.saveDir    
+            })
+            
+        }      
+
+
+        var formFields=Object.assign(files,parts.field);
+
+
+
+        //增加商品信息
+        let category =new this.ctx.model.Category(formFields);    
+        let result=await category.save();
+        console.log(result);
+
+
+
+        this.ctx.body = {
+            code:200,
+            message:'上传分类成功',
+            success:true
+        }
         this.ctx.body = {
             code:200,
             msg:'新增管理员成功!'
@@ -419,17 +482,7 @@ class FinanceController extends Controller {
             code:200,
             msg:'SUCCESS',
             data:{
-                "userId": "LPQD1211111988771",
-                "createTime": "12154545",
-                "userName": "吴系挂",
-                "affiliatedCompany": 2,
-                "name": "关云长",
-                "idNo": "421087199904094456",
-                "idCardFront": "/upload?file=f997776",
-                "idCardReverse": "/upload?file=f997776",
-                "loginPassword": "2344444",
-                "transactionPin": "222111",
-                "signCertificate": "/upload?file=f997776"
+              
             }
         }
     }
@@ -585,6 +638,8 @@ class FinanceController extends Controller {
     //融资人详细信息
     async orderUser() {
         let result = this.ctx.query;
+        console.log(result);
+
         this.ctx.body = {
             code:200,
             msg:'SUCCESS',
@@ -707,9 +762,79 @@ class FinanceController extends Controller {
             code:200,
             msg:'SUCCESS',
             data:{
-               
-               
-            }
+                    userInfo: {
+                        "channelName": '111',
+                        "creditScore": '111',
+                        "userType": "1",
+                        "userName": "123",
+                        "userNo": "123",
+                        "mobile": "123",
+                        "idNo": "123",
+                        "createdTime": '111',
+                        "cardType": '111'
+                    },
+                    sponsorInfo: [],
+                    contactInfo: [{
+                        "userName": "tes",
+                        "relationship": "同事",
+                        "mobile": "123"
+                    }],
+                    mateUserInfo: {
+                        "updatedTime": '11',
+                        "liveStatus": '111',
+                        "liveAddr": '111',
+                        "carInfo": '111',
+                        "eduInfo": '111',
+                        "occupationType": '',
+                        "incomeFrom": '2222',
+                        "unitName": '3333',
+                        "unitTel": '4444',
+                        "position": '5555',
+                        "entryDate": '666',
+                        "bizFlow": '777',
+                        "monthIncome": '888',
+                        "acctepMaxRepay": '999',
+                        "operatYear": '1010',
+                        "payedSocial": '1214',
+                        "yearIncome": '1414',
+                        "gpsInfo": '1414',
+                        "ipAddr": '222',
+                        "marrInfo": '222',
+                        "mateName": "peiou",
+                        "mateIdNo": "test1",
+                        "mateIncomeFrom": "自营",
+                        "mateMobile": '222',
+                        "mateYearIncome": '222',
+                        "mateUnit": '444'
+                    },
+                    addUserInfo: {
+                        "updatedTime": '555',
+                        "liveStatus": "租借",
+                        "liveAddr": "test",
+                        "carInfo": "无车",
+                        "eduInfo": "大学",
+                        "occupationType": "上班人群",
+                        "incomeFrom": "工资",
+                        "unitName": "test",
+                        "unitTel": "110",
+                        "position": "test",
+                        "entryDate": 1547481600000,
+                        "bizFlow": "100000.00",
+                        "monthIncome": "5001～9999元",
+                        "acctepMaxRepay": "5000.00",
+                        "operatYear": '1111',
+                        "payedSocial": "0",
+                        "yearIncome": '0000',
+                        "gpsInfo": '1111',
+                        "ipAddr": '11111',
+                        "marrInfo": '123456',
+                        "mateName": '123',
+                        "mateIdNo": '5555',
+                        "mateIncomeFrom": '45566',
+                        "mateMobile": 'nu2541',
+                        "mateYearIncome": '4141',
+                    }
+                }
         }
     }
     //用户列表(企业)
@@ -1415,6 +1540,98 @@ class FinanceController extends Controller {
                     "secondContactRel":"兄弟",
                     "secondContactMobile":"13687601921"
                 }
+            }
+        }
+    }
+    //审核配置层级删除
+    async auditDelete() {
+        let result = this.ctx.query;
+        if(result.id) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:'删除成功'
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'FAIL',
+                data:'传入参数有误'
+            }
+        }
+    }
+    //审核详情查看
+    async auditInfo() {
+        let result = this.ctx.query;
+        if(result.id) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:{
+                    "taskAuditBasicInfo":{
+                        "id": 2,
+                        "bizTypeName": "用户审核（企业）",
+                        "channelName": "渠道B",
+                        "createdTime": 1556620751000,
+                        "updatedTime": 1556620753000
+                    },
+                    "taskAuditInfoList":[
+                        {
+                            "id": 2,
+                            "auditLvl": "1",
+                            "auditLvlName": "初审",
+                            "auditUserName": "1111"
+                        },
+                        {
+                            
+                                "id": 2,
+                                "auditLvl": "2",
+                                "auditLvlName": "初审",
+                                "auditUserName": "111"
+                            
+                        },
+                        {
+                            
+                            "id": 2,
+                            "auditLvl": "3",
+                            "auditLvlName": "初审",
+                            "auditUserName": "111"
+                        
+                    }
+                    ]
+                }
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'FAIL',
+                data:"传入参数有误"
+            }
+        }
+    }
+    async adminLock() {
+        let result = this.ctx.query;
+        if(result.userId) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:"状态更改成功"
+            }
+        }
+    }
+    async adminDelete() {
+        let result = this.ctx.query;
+        if(result.userId) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:'删除成功'
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'FAIL',
+                data:'传入参数有误'
             }
         }
     }
