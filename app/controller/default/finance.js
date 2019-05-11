@@ -338,21 +338,14 @@ class FinanceController extends Controller {
 
 
         var formFields=Object.assign(files,parts.field);
+        console.log(formFields);
+
 
 
 
         //增加商品信息
         let category =new this.ctx.model.Category(formFields);    
         let result=await category.save();
-        console.log(result);
-
-
-
-        this.ctx.body = {
-            code:200,
-            message:'上传分类成功',
-            success:true
-        }
         this.ctx.body = {
             code:200,
             msg:'新增管理员成功!'
