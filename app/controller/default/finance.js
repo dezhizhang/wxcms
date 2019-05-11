@@ -762,7 +762,7 @@ class FinanceController extends Controller {
             code:200,
             msg:'SUCCESS',
             data:{
-                    userInfo: {
+                "contactInfo": {
                         "channelName": '111',
                         "creditScore": '111',
                         "userType": "1",
@@ -773,42 +773,24 @@ class FinanceController extends Controller {
                         "createdTime": '111',
                         "cardType": '111'
                     },
-                    sponsorInfo: [],
-                    contactInfo: [{
-                        "userName": "tes",
-                        "relationship": "同事",
-                        "mobile": "123"
-                    }],
-                    mateUserInfo: {
-                        "updatedTime": '11',
-                        "liveStatus": '111',
-                        "liveAddr": '111',
-                        "carInfo": '111',
-                        "eduInfo": '111',
-                        "occupationType": '',
-                        "incomeFrom": '2222',
-                        "unitName": '3333',
-                        "unitTel": '4444',
-                        "position": '5555',
-                        "entryDate": '666',
-                        "bizFlow": '777',
-                        "monthIncome": '888',
-                        "acctepMaxRepay": '999',
-                        "operatYear": '1010',
-                        "payedSocial": '1214',
-                        "yearIncome": '1414',
-                        "gpsInfo": '1414',
-                        "ipAddr": '222',
-                        "marrInfo": '222',
-                        "mateName": "peiou",
-                        "mateIdNo": "test1",
-                        "mateIncomeFrom": "自营",
-                        "mateMobile": '222',
-                        "mateYearIncome": '222',
-                        "mateUnit": '444'
+       
+                    "nuclearInfo":{
+
                     },
-                    addUserInfo: {
-                        "updatedTime": '555',
+                    
+                    "basicUserInfo": {
+                        "channelName": "test",
+                        "creditScore": '11',
+                        "userType": "个人",
+                        "userName": "123",
+                        "userNo": "123",
+                        "mobile": "123",
+                        "idNo": "123",
+                        "createdTime": '111',
+                        "cardType": "身份证"
+                      },
+                      "addUserInfo": {
+                        "updatedTime": '111',
                         "liveStatus": "租借",
                         "liveAddr": "test",
                         "carInfo": "无车",
@@ -822,18 +804,48 @@ class FinanceController extends Controller {
                         "bizFlow": "100000.00",
                         "monthIncome": "5001～9999元",
                         "acctepMaxRepay": "5000.00",
-                        "operatYear": '1111',
-                        "payedSocial": "0",
-                        "yearIncome": '0000',
-                        "gpsInfo": '1111',
-                        "ipAddr": '11111',
-                        "marrInfo": '123456',
-                        "mateName": '123',
-                        "mateIdNo": '5555',
-                        "mateIncomeFrom": '45566',
-                        "mateMobile": 'nu2541',
-                        "mateYearIncome": '4141',
-                    }
+                        "operatYear": '111',
+                        "payedSocial": '111',
+                        "yearIncome": '111',
+                        "gpsInfo": '111',
+                        "ipAddr": '111',
+                        "marrInfo": '111',
+                        "mateName": '11',
+                        "mateIdNo": '1111',
+                        "mateIncomeFrom": '111',
+                        "mateMobile": '111',
+                        "mateYearIncome": '111',
+                        "mateUnit": '111'
+                      },
+                      "mateInfo": {
+                        "updatedTime": '111',
+                        "liveStatus": '111',
+                        "liveAddr": '111',
+                        "carInfo": '111',
+                        "eduInfo": '111',
+                        "occupationType": '111',
+                        "incomeFrom": '111',
+                        "unitName": '111',
+                        "unitTel": '111',
+                        "position": '111',
+                        "entryDate": '111',
+                        "bizFlow": '111',
+                        "monthIncome": '2222',
+                        "acctepMaxRepay": '222',
+                        "operatYear": '3333',
+                        "payedSocial": '333',
+                        "yearIncome": '4444',
+                        "gpsInfo": '5555',
+                        "ipAddr": '666',
+                        "marrInfo": '6666',
+                        "mateName": "peiou",
+                        "mateIdNo": "test1",
+                        "mateIncomeFrom": "自营",
+                        "mateMobile": '777',
+                        "mateYearIncome": '888',
+                        "mateUnit": '9999'
+                      },
+                    
                 }
         }
     }
