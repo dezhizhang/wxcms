@@ -211,6 +211,8 @@ module.exports = app => {
  router.get('/financeAdmin/audit/delete',controller.default.finance.auditDelete);
  //锁定/禁用管理员
  router.get('/financeAdmin/admin/lock',controller.default.finance.adminLock);
+ //上传数据接口
+ router.post('/financeAdmin/admin/userData',controller.default.finance.userData)
 
 
 

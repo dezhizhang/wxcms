@@ -1640,6 +1640,15 @@ class FinanceController extends Controller {
             }
         }
     }
+    async userData() {
+        let result = this.ctx.request.body;
+        console.log(result)
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[]
+        }
+    }
   
 }
 
