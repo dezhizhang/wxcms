@@ -203,6 +203,8 @@ module.exports = app => {
  router.get('/financeAdmin/role/getAllRoleList',controller.default.finance.getAllRoleList);
  //融资人详细信息
  router.post('/financeAdmin/financeManagement/user',controller.default.finance.managementUser);
+
+
  
 
 

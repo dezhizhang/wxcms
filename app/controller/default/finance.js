@@ -99,33 +99,193 @@ class FinanceController extends Controller {
     //管理员列表
     async adminList() {
         let result = this.ctx.query;
-        this.ctx.body = {
-            code:200,
-            msg:'SUCCESS',
-            data: {
-                total: 1,
-                rows: [
-                  {
-                     "accountId":"LPDQ120120000000001",
-                     "accountName":"管理员a",
-                     "roleName":"中控-超管",
-                     "fullName":"蔡xx",
-                     "phone":"138000138000",
-                     "status":"0",
-                     "lastLoginTime":"2019-04-03 11:33:22"
-                  },
-                  {
-                     "accountId":"LPDQ120120000000002",
-                     "accountName":"管理员a",
-                     "roleName":"中控-超管",
-                     "fullName":"关云长",
-                     "phone":"138000138000",
-                     "status":"1",
-                     "lastLoginTime":"2019-04-03 11:33:22"
-                  }
-                ]
+        if(result.limit) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data: {
+                    "total": 22,
+                    "list": [
+                        {
+                            "id": 2,
+                            "loginName": "shuangj",
+                            "roleName": "todo 角色名",
+                            "name": "李四",
+                            "mobile": "13888888888",
+                            "lastLoginTime": 1556598745878,
+                            "userNo": "T111111222",
+                            "available": true
+                        },
+                        {
+                            "id": 3,
+                            "loginName": "jack",
+                            "roleName": "todo 角色名",
+                            "name": "王五",
+                            "mobile": "13888883676",
+                            "lastLoginTime": 1556176761000,
+                            "userNo": "T111111367",
+                            "available": true
+                        },
+                        {
+                            "id": 4,
+                            "loginName": "zhangshan",
+                            "roleName": "todo 角色名",
+                            "name": "老六",
+                            "mobile": "13888883676",
+                            "lastLoginTime": 1556176761000,
+                            "userNo": "T1111118765",
+                            "available": true
+                        },
+                        {
+                            "id": 5,
+                            "loginName": "vip1111",
+                            "roleName": "todo 角色名",
+                            "name": "苏七",
+                            "mobile": "13888883676",
+                            "lastLoginTime": 1556176761000,
+                            "userNo": "T111111863",
+                            "available": true
+                        },
+                        {
+                            "id": 6,
+                            "loginName": "jack123123",
+                            "roleName": "todo 角色名",
+                            "name": "吴八",
+                            "mobile": "13888883676",
+                            "lastLoginTime": 1556176761000,
+                            "userNo": "T111111444",
+                            "available": true
+                        },
+                        {
+                            "id": 7,
+                            "loginName": "112jack",
+                            "roleName": "todo 角色名",
+                            "name": "陈十",
+                            "mobile": "13888883676",
+                            "lastLoginTime": 1556176761000,
+                            "userNo": "T11111133",
+                            "available": true
+                        },
+                        {
+                            "id": 8,
+                            "loginName": "jack45555",
+                            "roleName": "todo 角色名",
+                            "name": "肖十一",
+                            "mobile": "13888883676",
+                            "lastLoginTime": 1556176761000,
+                            "userNo": "T1111117766",
+                            "available": true
+                        },
+                        {
+                            "id": 9,
+                            "loginName": "jackma",
+                            "roleName": "todo 角色名",
+                            "name": "赵十二",
+                            "mobile": "13888883676",
+                            "lastLoginTime": 1556176761000,
+                            "userNo": "T111111566",
+                            "available": true
+                        },
+                        {
+                            "id": 1,
+                            "loginName": "1",
+                            "roleName": "todo 角色名",
+                            "name": "张三",
+                            "mobile": "13888888888",
+                            "lastLoginTime": 1557231346653,
+                            "userNo": "T1111113",
+                            "available": false
+                        },
+                        {
+                            "id": 11,
+                            "loginName": "new 1123123",
+                            "roleName": "todo 角色名",
+                            "name": null,
+                            "mobile": null,
+                            "lastLoginTime": 1557218233797,
+                            "userNo": "0aec909a04794f29affb70bf66bc6349",
+                            "available": true
+                        }
+                    ],
+                    "pageNum": 0,
+                    "pageSize": 10,
+                    "size": 10,
+                    "startRow": 1,
+                    "endRow": 10,
+                    "pages": 3,
+                    "prePage": 0,
+                    "nextPage": 1,
+                    "isFirstPage": false,
+                    "isLastPage": false,
+                    "hasPreviousPage": false,
+                    "hasNextPage": true,
+                    "navigatePages": 10,
+                    "navigatepageNums": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "navigateFirstPage": 1,
+                    "navigateLastPage": 3,
+                    "firstPage": 1,
+                    "lastPage": 3
+                    }
+            }
+        } else {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data: {
+                    "total": 22,
+                    "list": [
+                        {
+                            "id": 2,
+                            "loginName": "shuangj",
+                            "roleName": "todo 角色名",
+                            "name": "李四",
+                            "mobile": "13888888888",
+                            "lastLoginTime": 1556598745878,
+                            "userNo": "T111111222",
+                            "available": true
+                        },
+                        {
+                            "id": 3,
+                            "loginName": "jack",
+                            "roleName": "todo 角色名",
+                            "name": "王五",
+                            "mobile": "13888883676",
+                            "lastLoginTime": 1556176761000,
+                            "userNo": "T111111367",
+                            "available": true
+                        },
+                     
+                    ],
+                    "pageNum": 0,
+                    "pageSize": 10,
+                    "size": 10,
+                    "startRow": 1,
+                    "endRow": 10,
+                    "pages": 3,
+                    "prePage": 0,
+                    "nextPage": 1,
+                    "isFirstPage": false,
+                    "isLastPage": false,
+                    "hasPreviousPage": false,
+                    "hasNextPage": true,
+                    "navigatePages": 10,
+                    "navigatepageNums": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "navigateFirstPage": 1,
+                    "navigateLastPage": 3,
+                    "firstPage": 1,
+                    "lastPage": 3
+                    }
+            }
         }
-    }
+        
     }
     //新增管理员
     async adminAdd() {
@@ -912,7 +1072,7 @@ class FinanceController extends Controller {
     //单标的物
     async policyInfo() {
         let result = this.ctx.request.body;
-        console.log(result);
+        console.log(result);  
 
         if(result.insuranceNo == '') {
             this.ctx.body = {
@@ -965,6 +1125,56 @@ class FinanceController extends Controller {
                     "destForceInsuPolicySts":"123456",
                     "onlineInvoiceLink":"654121"
                 },
+                {
+                    "insuranceNo":"123456",
+                    "bizInsuranceNo":"122",
+                    "bizPremium":"100",
+                    "bizTime":"2019-2020",
+                    "forceInsuPolicyNo":"1233456",
+                    "forceInsuPremium":"100",
+                    "forceInsuTime":"2019-2024",
+                    "carTaxAmount":	100.00,
+                    "insureLetter":80.00,
+                    "totalPremium":1000.00,
+                    "specialClause":"张三",
+                    "policyholderName":"李四",
+                    "policyholderCard":"123456",
+                    "policyholderMobile":"15083356191",
+                    "policyholderIdcardFront":"52020219980102701X",
+                    "policyholderIdcardBack":"广州",
+                    "insuredName":"周华建",
+                    "insuredCard":"14312",
+                    "insuredMobile":"15083356194",
+                    "insuredCertFront":"18356160",
+                    "insuredCertBack":"5020201645241",
+                    "carOwnerName":"王五",
+                    "carOwnerCard":	"41235",
+                    "carMobile":"17542996",
+                    "carCertFront":"15409448",
+                    "carCertBack":"5210155",
+                    "riskCode":	"1234556",
+                    "riskName":"商业险",
+                    "insuranceNumber":"马六",
+                    "everyCoverage":"123",
+                    "totalCoverage":"1000",
+                    "notDeductibleMark":"456",
+                    "riskAddType":"7654",
+                    "bankName":"中国银行",
+                    "bankProv":"广东省",
+                    "bankCity":"广州市",
+                    "bankBranchName":"广州分行",
+                    "accountName":"马六",
+                    "accountId":"12345",
+                    "destInsuranceNo":"4562",
+                    "destBizInsuranceNo":"7654545",
+                    "destBizInsuranceSts":"123456",
+                    "destForceInsuPolicyNo":"6542020",
+                    "destForceInsuPolicySts":"123456",
+                    "onlineInvoiceLink":"654121"
+                },
+        
+             
+               
                 {
                     "insuranceNo":"123456",
                     "bizInsuranceNo":"122",
