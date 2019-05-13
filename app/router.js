@@ -154,15 +154,17 @@ module.exports = app => {
  //删除管理员
  router.get('/financeAdmin/admin/delete',controller.default.finance.adminDelete);
  //获取所有角色
- router.get('/financeAdmin/api/role/list',controller.default.finance.roleList);
+ router.get('/financeAdmin/role/list',controller.default.finance.roleList);
  //查看角色信息
  router.get('/financeAdmin/api/role/detail',controller.default.finance.roleDetail);
  //新增角色
  router.post('/financeAdmin/api/role/add',controller.default.finance.roleAdd);
  //删除角色
- router.post('/financeAdmin/api/role/delete',controller.default.finance.roleDelete);
+ router.post('/financeAdmin/role/delete',controller.default.finance.roleDelete);
  //更新角色
- router.post('/financeAdmin/api/role/update',controller.default.finance.roleUpdate);
+ router.post('/financeAdmin/role/update',controller.default.finance.roleUpdate);
+ //新增角色
+ router.post('/financeAdmin/role/save',controller.default.finance.roleSave);
  //修改登录密码
  router.post('/financeAdmin/user/changePassword',controller.default.finance.changePassword);
  //修改交易密
@@ -212,7 +214,14 @@ module.exports = app => {
  //锁定/禁用管理员
  router.get('/financeAdmin/admin/lock',controller.default.finance.adminLock);
  //上传数据接口
- router.post('/financeAdmin/admin/userData',controller.default.finance.userData)
+ router.post('/financeAdmin/admin/userData',controller.default.finance.userData);
+ //获取所有模块
+ router.get('/financeAdmin/role/getAllModulesList',controller.default.finance.getAllModulesList);
+ //获取所有企业名称
+ router.get('/financeAdmin/role/getAllCompanyNameList',controller.default.finance.getAllCompanyNameList);
+ //获取角色菜单
+ router.get('/financeAdmin/role/getRoleMenuByRoleId',controller.default.finance.getRoleMenuByRoleId)
+ 
 
 
 

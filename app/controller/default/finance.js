@@ -362,6 +362,7 @@ class FinanceController extends Controller {
     //获取所有角色
     async roleList() {
         let result = this.ctx.query;
+        console.log(result)
       
         this.ctx.body = {
             code:200,
@@ -439,18 +440,38 @@ class FinanceController extends Controller {
     //删除角色
     async roleDelete() {
         let result = this.ctx.request.body;
-        this.ctx.body = {
-            code:200,
-            msg:'删除成功'
+        if(result.roleId) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:'删除角色成功'
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:"FAIL",
+                data:'传入的参数有误'
+            }
         }
+        
     }
     //更新角色
     async roleUpdate() {
         let result = this.ctx.request.body;
-        this.ctx.body = {
-            code:200,
-            msg:'修改成功'
+        if(result.moduleId && result.roleId) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:'修改成功'
+            }
+        } else {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:'传入的参数有误'
+            }
         }
+       
     }
     //修改登录密码
     async changePassword() {
@@ -1642,11 +1663,183 @@ class FinanceController extends Controller {
     }
     async userData() {
         let result = this.ctx.request.body;
-        console.log(result)
         this.ctx.body = {
             code:200,
             msg:'SUCCESS',
-            data:[]
+            data:"新增管理员成功"
+        }
+    }
+    //新增角色
+    async roleSave() {
+        let result = this.ctx.request.body;
+        if(result.enterpriseNo  && result.moduleId && result.name) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:'新增成功'
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'FAIL',
+                data:"请求参数有误"
+            }
+        }
+    }
+    //获取所有模块
+    async getAllModulesList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                     "id": 1,
+                     "moduleName": "xxx模块"
+                },
+                {
+                   "id": 1,
+                   "moduleName": "xxx模块"
+                },
+                {
+                   "id": 1,
+                   "moduleName": "xxx模块"
+                }
+            ]
+        }
+    }
+    //获取所有企业名称
+    async getAllCompanyNameList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:"SUCCESS",
+            data: [
+                {
+                     "id": 1,
+                     "companyName": "xxx模块"
+                },
+                {
+                   "id": 1,
+                   "companyName": "xxx模块"
+                },
+                {
+                   "id": 1,
+                   "companyName": "xxx模块"
+                }
+            ]
+        }
+    }
+    async getRoleMenuByRoleId() {
+        let result = this.ctx.query;
+        if(result.roleId) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:{
+                   menu:[{
+                    "menuId": 5,
+                    "moduleId":33,
+                    "menuUrl":"xzCredit/smartCompass",
+                    "parentId": 1,
+                    "menuName":"SQL监控",
+                    "isLeaf":false,
+                    "menuIcon":"sql-icon",
+                    "isAvailable":true,
+                    "zorder":3,
+                    "createdTime":"2019-04-16 11:55:00",
+                    "updateTime":"2019-04-16 11:55:00",
+                    "createdUser":"u111110000",
+                    "updatedUser":"u333937636",
+                     childrenMenu:[
+                         {
+                            "menuId": 12,
+                            "moduleId":33,
+                            "menuUrl":"xzCredit/smartCompass",
+                            "parentId": 1,
+                            "menuName":"SQL监控",
+                            "isLeaf":false,
+                            "menuIcon":"sql-icon",
+                            "isAvailable":true,
+                            "zorder":3,
+                            "createdTime":"2019-04-16 11:55:00",
+                            "updateTime":"2019-04-16 11:55:00",
+                            "createdUser":"u111110000",
+                            "updatedUser":"u333937636"
+                         },
+                         {
+                            "menuId": 11,
+                            "moduleId":33,
+                            "menuUrl":"xzCredit/smartCompass",
+                            "parentId": 1,
+                            "menuName":"SQL监控",
+                            "isLeaf":false,
+                            "menuIcon":"sql-icon",
+                            "isAvailable":true,
+                            "zorder":3,
+                            "createdTime":"2019-04-16 11:55:00",
+                            "updateTime":"2019-04-16 11:55:00",
+                            "createdUser":"u111110000",
+                            "updatedUser":"u333937636"
+                         }
+                     ]
+                   },
+                   {
+                    "menuId": 2,
+                    "moduleId":33,
+                    "menuUrl":"xzCredit/smartCompass",
+                    "parentId": 1,
+                    "menuName":"SQL监控",
+                    "isLeaf":false,
+                    "menuIcon":"sql-icon",
+                    "isAvailable":true,
+                    "zorder":3,
+                    "createdTime":"2019-04-16 11:55:00",
+                    "updateTime":"2019-04-16 11:55:00",
+                    "createdUser":"u111110000",
+                    "updatedUser":"u333937636",
+                     childrenMenu:[
+                         {
+                            "menuId": 4,
+                            "moduleId":33,
+                            "menuUrl":"xzCredit/smartCompass",
+                            "parentId": 1,
+                            "menuName":"SQL监控",
+                            "isLeaf":false,
+                            "menuIcon":"sql-icon",
+                            "isAvailable":true,
+                            "zorder":3,
+                            "createdTime":"2019-04-16 11:55:00",
+                            "updateTime":"2019-04-16 11:55:00",
+                            "createdUser":"u111110000",
+                            "updatedUser":"u333937636"
+                         },
+                         {
+                            "menuId": 9,
+                            "moduleId":33,
+                            "menuUrl":"xzCredit/smartCompass",
+                            "parentId": 1,
+                            "menuName":"SQL监控",
+                            "isLeaf":false,
+                            "menuIcon":"sql-icon",
+                            "isAvailable":true,
+                            "zorder":3,
+                            "createdTime":"2019-04-16 11:55:00",
+                            "updateTime":"2019-04-16 11:55:00",
+                            "createdUser":"u111110000",
+                            "updatedUser":"u333937636"
+                         }
+                     ]
+                   }
+                ]
+                }
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'FAIL',
+                data:'参数有误'
+            }
         }
     }
   
