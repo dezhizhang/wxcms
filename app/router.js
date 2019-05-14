@@ -220,7 +220,16 @@ module.exports = app => {
  //获取所有企业名称
  router.get('/financeAdmin/role/getAllCompanyNameList',controller.default.finance.getAllCompanyNameList);
  //获取角色菜单
- router.get('/financeAdmin/role/getRoleMenuByRoleId',controller.default.finance.getRoleMenuByRoleId)
+ router.get('/financeAdmin/role/getRoleMenuByRoleId',controller.default.finance.getRoleMenuByRoleId);
+ //融资订单列表-资产渠道
+ router.get('/financeAdmin/financeManagement/assetChannelList',controller.default.finance.assetChannelList);
+ //融资订单列表
+ router.get('/financeAdmin/financeManagement/productNameList',controller.default.finance.productNameList);
+ //融资订单列表
+ router.get('/financeAdmin/financeManagement/businessTypeList',controller.default.finance.businessTypeList);
+ //
+ router.get('/financeAdmin/financeManagement/orderStatusList',controller.default.finance.orderStatusList)
+
  
 
 

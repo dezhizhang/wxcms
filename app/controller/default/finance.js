@@ -1842,6 +1842,87 @@ class FinanceController extends Controller {
             }
         }
     }
+    async assetChannelList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data: [
+                {
+                    "channelNo": "ZC000001",
+                    "channelName": "中安"
+                },
+                {
+                    "channelNo": "ZC000002",
+                    "channelName": "华城"
+                }
+            ]
+        }
+    }
+    async productNameList() {
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "productName": "分期汇",
+                    "productNo": "CP000004"
+                },
+                {
+                    "productName": "逸百年车险分期(协议代扣)",
+                    "productNo": "CP000001"
+                },
+                {
+                    "productName": "逸百年车险分期(线上支付)",
+                    "productNo": "CP000003"
+                },
+                {
+                    "productName": "逸百年车险分期(线下转账)",
+                    "productNo": "CP000002"
+                }
+            ]
+        }
+    }
+    async businessTypeList() {
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data: [
+                {
+                    "typeNo": "YW000001",
+                    "typeName": "汽车分期"
+                },
+                {
+                    "typeNo": "YW000002",
+                    "typeName": "车险分期"
+                }
+            ]
+        }
+    }
+    async orderStatusList() {
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "status": "审核通过",
+                    "key":"pass"
+                },
+                {
+                    "status": "已放款"
+                },
+                {
+                    "status": "已还款"
+                },
+                {
+                    "status": "审核中"
+                },
+                {
+                    "status": "不通过"
+                }
+            ]
+        }
+    }
   
 }
 
