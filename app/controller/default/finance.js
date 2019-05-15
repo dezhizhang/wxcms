@@ -368,43 +368,56 @@ class FinanceController extends Controller {
             code:200,
             msg:'SUCCESS',
             data:{
-            total: 2,
-            rows: [
+                "total": 3,
+                "list": [
                     {
-                        "roleId":"1",
-                        "name":"超管",
-                        "roleName":"中控-超管",
-                        "description":"我是一段描述",
-                        "company":"智数",
-                        "model":"角色管理",
-                        "status":0,
-                        "updatedTime":"2019-04-03 11:33:22",
-                        "createdTime":"2019-04-03 11:33:22",
-                        "createdBy":"关云长",
-                        "updatedBy":"张飞",
-                        "isAvailable":true,
-                        "groupNo":"T1001",    
-                        "displayName":"展示模块",
-                        "moduleId":"1"
+                        "id": 1,
+                        "name": "业管-a",
+                        "description": "业管-a",
+                        "createdTime": 1556419246000,
+                        "moduleName": "系统a",
+                        "enterpriseName": "广州知数信息技术有限公司",
+                        "available": true
                     },
                     {
-                        "roleId":"2",
-                        "name":"超管",
-                        "roleName":"中控-超管",
-                        "description":"我是一段描述",
-                        "company":"智数",
-                        "model":"用户管理",
-                        "status":1,
-                        "updatedTime":"2019-04-03 11:33:22",
-                        "createdTime":"2019-04-03 11:33:22",
-                        "createdBy":"关云长",
-                        "updatedBy":"张飞",
-                        "isAvailable":true,
-                        "groupNo":"T1001",    
-                        "displayName":"展示模块",
-                        "moduleId":"1"
+                        "id": 2,
+                        "name": "业管-b",
+                        "description": "业管-b",
+                        "createdTime": 1556419246000,
+                        "moduleName": "系统B",
+                        "enterpriseName": "广州知数信息技术有限公司",
+                        "available": true
+                    },
+                    {
+                        "id": 3,
+                        "name": "超管jjjjjj",
+                        "description": "超管jjjjjjjj是系统管理员",
+                        "createdTime": 1557193099687,
+                        "moduleName": null,
+                        "enterpriseName": "广州xxxx公司",
+                        "available": false
                     }
-                    ]
+                ],
+                "pageNum": 0,
+                "pageSize": 10,
+                "size": 3,
+                "startRow": 1,
+                "endRow": 3,
+                "pages": 1,
+                "prePage": 0,
+                "nextPage": 1,
+                "isFirstPage": false,
+                "isLastPage": false,
+                "hasPreviousPage": false,
+                "hasNextPage": true,
+                "navigatePages": 10,
+                "navigatepageNums": [
+                    1
+                ],
+                "navigateFirstPage": 1,
+                "navigateLastPage": 1,
+                "firstPage": 1,
+                "lastPage": 1
             }
         }
     }
@@ -1921,6 +1934,38 @@ class FinanceController extends Controller {
                     "status": "不通过"
                 }
             ]
+        }
+    }
+    async lockRoleId() {
+        let result = this.ctx.query;
+        if(result.roleId) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:'锁定角色成功'
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'Fail',
+                data:'传入参数有误'
+            }
+        }
+    }
+    async roleUnLock() {
+        let result = this.ctx.query;
+        if(result.roleId) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:'解锁角色成功'
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'Fail',
+                data:'传入的参数有误'
+            }
         }
     }
   

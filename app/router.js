@@ -165,6 +165,10 @@ module.exports = app => {
  router.post('/financeAdmin/role/update',controller.default.finance.roleUpdate);
  //新增角色
  router.post('/financeAdmin/role/save',controller.default.finance.roleSave);
+ //锁定/禁用
+ router.get('/financeAdmin/role/lock',controller.default.finance.lockRoleId);
+ //解锁/启用
+ router.get('/financeAdmin/role/unlock',controller.default.finance.roleUnLock);
  //修改登录密码
  router.post('/financeAdmin/user/changePassword',controller.default.finance.changePassword);
  //修改交易密
