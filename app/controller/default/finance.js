@@ -42,18 +42,47 @@ class FinanceController extends Controller {
                 code:200,
                 msg:'SUCCESS',
                 data:{
-                    total:2,
-                    rows:[
+                    "total": 2,
+                    "list": [
                         {
-                            "accountId":"2",
-                            "assetsChannel":"管理员a",
-                            "type":"中控-超管",
-                            "cengJi":"关云长",
-                            "phone":"138000138000",
-                            "status":"1",
-                            "lastLoginTime":"2019-04-03 11:33:22"
+                            "id": 2,
+                            "auditLvlOrder": 1,
+                            "channelName": "渠道B",
+                            "typeName": "用户审核（企业）",
+                            "auditLvl": "1",
+                            "updateTime": 1556619498000,
+                            "available": true
+                        },
+                        {
+                            "id": 3,
+                            "auditLvlOrder": 2,
+                            "channelName": "渠道C",
+                            "typeName": null,
+                            "auditLvl": "2",
+                            "updateTime": 1556619498000,
+                            "available": true
                         }
-                    ]
+                    ],
+                    "pageNum": 0,
+                    "pageSize": 10,
+                    "size": 2,
+                    "startRow": 1,
+                    "endRow": 2,
+                    "pages": 1,
+                    "prePage": 0,
+                    "nextPage": 1,
+                    "isFirstPage": false,
+                    "isLastPage": false,
+                    "hasPreviousPage": false,
+                    "hasNextPage": true,
+                    "navigatePages": 10,
+                    "navigatepageNums": [
+                        1
+                    ],
+                    "navigateFirstPage": 1,
+                    "navigateLastPage": 1,
+                    "lastPage": 1,
+                    "firstPage": 1
                 }
             }
         } else {
@@ -582,83 +611,117 @@ class FinanceController extends Controller {
             code:200,
             msg:'SUCCESS',
             data:{
-               
-                repaymentPlan: [{
-                    "curTerm": "12",
-                    "curDueDate": 1547481600000,
-                    "totalRepayment": "10000.00",
-                    "capital": "1000",
-                    "XiFei": "1000.00",
-                    "interest":"100",
-                    "repaySuccessDate": 1547481600000,
-                    "billStatus":"还款中"
-
-                }],
-                orderInfo: {
-                    "bizNo": "123",
-                    "repaymentType": "等本等算成",
-                    "applyAmt": "10000.00",
-                    "interestRate": "0.05",
-                    "applyTime": 1547481600000,
-                    "repayLimit": 12,
-                    "modle":"线上代扣",
-                    "cost": "10000",
-                    "interestDate": 1547481600000,
-                    "dueDate": 1547481600000,
-                    "planDate": 1547481600000,
-                    "orderStatus": "还款中",
+                "orderBasicInfo": {
+                    "customerNo": "88",
+                    "userNo": "88",
+                    "assetChannelNo": "ZC000001",
+                    "assetChannelName": "中安",
+                    "userName": "企鹅",
+                    "userType": "个人",
+                    "applyTime": 1554794695000,
+                    "productName": "逸百年车险分期(协议代扣)",
+                    "typeName": "汽车分期",
+                    "bizNo": "222",
+                    "applyAmt": "5000.00",
+                    "repayWay": "等本等息",
+                    "orderApplyTime": null,
+                    "termLimit": null,
+                    "repayType": "1",
+                    "loanCost": "5.00",
+                    "repayDate": null,
+                    "loanAmt": null,
+                    "termType": null,
+                    "repayLimit": "6",
+                    "interestDate": 1555516800000,
+                    "dueDate": 1559232000000,
+                    "totalRepay": null,
+                    "repayDesc": null,
+                    "realAmt": null,
+                    "interestRate": "0.0700",
+                    "status": "审核中"
                 },
-                attachInfo: [{
-                    "attType": "借款合同",
-                    "attCtxNo": "test",
-                    "taddy": "张三",
-                    "attFile": "1"
-                }],
-                basicInfo:{
-                    "basicInfo": "张三",
-                    "userNo": "1547481600000",
-                    "customerNo": "554254241541",
-                    "assetChannelNo": "456521251224",
-                    "userName": "王五",
-                    "assetChannelName": "小智",
-                    "userType": "普通用户",
-                    "applyTime": "2019-0-12",
-                    "productName": "分期产品",
-                    "typeName":"分期"
-                },
-                contractInfo:[{
-                    "attType":"合同",
-                    "attCtxNo":"12345",
-                    "attFile":"3125"
-                }],
-                paymentAccount:[{
-                    "isPayment":true,
-                    "accountName":"张三",
-                    "accountId":"1234566",
-                    "accoutBank":"中国银行",
-                    "openingBank":"中行",
-                    "unionpayNo":"637719"
-                }],
-                repaymentAccount:[{
-                    "isPayment":false,
-                    "accountName":"李四",
-                    "accountId":"661369",
-                    "accoutBank":"中国农行",
-                    "openingBank":"农行",
-                    "unionpayNo":"65413542"
-                }],
-                subjectInfo:[{
-                    "subjectType":"商品",
-                    "subjectNum":100,
-                    "handle":"抵压"
-                }],
-                auditRecords:[{
-                    "auditRole":"管理员",
-                    "auditor":"李四",
-                    "auditTime":1547481600000,
-                    "auditRes":"通过",
-                    "remark":"张三审核"
-                }]
+                "repayPlans": [
+                    {
+                        "curTerm": "1",
+                        "curDueDate": 1559232000000,
+                        "totalRepayment": "5000.00",
+                        "capital": "2770.29",
+                        "interest": "2.00",
+                        "hadRepayment": null,
+                        "billStatus": "未到期",
+                        "repaySuccessDate": 1556553600000,
+                        "remark": "test",
+                        "overdueAmt": null
+                    }
+                ],
+                "attachInfo": [
+                    {
+                        "attType": null,
+                        "attCtxNo": null,
+                        "fileId": "4frsf"
+                    },
+                    {
+                        "attType": null,
+                        "attCtxNo": null,
+                        "fileId": "rdg5463456"
+                    }
+                ],
+                "receiveAccountInfo": [
+                    {
+                        "receiveAccountType": "收款账户",
+                        "receiveAccountName": "中国人民财产保险股份有限公司广州市分公司",
+                        "receiveAccountId": "9558853602000477645",
+                        "receiveBankNo": null,
+                        "receiveBankBranchName": "中国工商银行广州市第一支行",
+                        "receiveBankCode": null
+                    }
+                ],
+                 "payAccountInfo": [
+                    {
+                        "payAccountType": "还款账户",
+                        "payAccountName": "中国人民财产保险股份有限公司广州市分公司",
+                        "payAccountId": "97654g54354211",
+                        "payBankNo": "工商银行",
+                        "payBankBranchName": "中国工商银行广州市第一支行",
+                        "payBankCode": null
+                    }
+                ],
+                "subjectInfo": [
+                    {
+                        "subjectTypeName": null,
+                        "subjectNumber": 1
+                    }
+                ],
+                "auditAttach": [
+                    {
+                        "attType": "购车合同",
+                        "uploader": "凌凌漆",
+                        "attCtxNo": "GDT4E5443",
+                        "attachFile": "f1d99c9a-4cbe-47c1-a254-596a7a9f299a"
+                    },
+                    {
+                        "attType": "购车合同",
+                        "uploader": "凌凌漆",
+                        "attCtxNo": "FAK8432055",
+                        "attachFile": "f1d99c9a-4cbe-47c1-a254-596a7a9f299a"
+                    }
+                ],
+                "auditRecord": [
+                    {
+                        "curLvlName": "初审",
+                        "auditor": "凌凌漆",
+                        "auditTime": "2019-05-07 16:55:27",
+                        "auditResult": "通过",
+                        "remark": null
+                    },
+                    {
+                        "curLvlName": "复审",
+                        "auditor": "凌凌漆",
+                        "auditTime": "2019-05-09 16:55:32",
+                        "auditResult": "不通过",
+                        "remark": null
+                    }
+                ]
             }
         }
     }
@@ -1518,67 +1581,79 @@ class FinanceController extends Controller {
             code:200,
             msg:'SUCCESS',
             data:{
-                userBasicInfo: {
-                    "userNo":"LPC12012018001",
-                    "channelName":"中安",
-                    "userType":"个人",
-                    "userName":"陈晓玩",
-                    "cardType":"身份证",
-                    "idNo":"445381****9999",
-                    "mobile":"138****1111",
-                    "creditScore":"701"
+                "basicUser": {
+                    "userId": 418,
+                    "channelName": "中安",
+                    "creditScore": 90,
+                    "userType": "个人",
+                    "userName": "企鹅",
+                    "userNo": "88",
+                    "mobile": "18718877717",
+                    "idNo": "1234E",
+                    "cardType": "身份证"
                 },
-                identityVerifyInfo:{
-                    "name":"陈晓玩",
-                    "isIdentityMatch":"通过",
-                    "idNo":"44018****5043",
-                    "OCR":"通过",
-                    "mobile":"13829110414",
-                    "faceRecDegree":"87.6%",
-                    "creditAuthResult":"无附件",
-                    "creditAuthId":"查看附件",
-                    "IDCardFront":"查看附件",
-                    "IDCardBack":"查看附件",
-                    "frontFaceId":"查看附件"
+                 "verifyInfo": [
+                    {
+                        "name": "企鹅",
+                        "idNo": "1234E",
+                        "mobile": "18718877717",
+                        "isIdentityMatch": "通过",
+                        "ocrRzt": "通过",
+                        "faceRecDegree": "89.19752",
+                        "creditAuthResult": null,
+                        "creditAuthId": "test企鹅个人征信查询授权书"
+                    }
+                ],
+                "verifyFile": [
+                    {
+                        "creditAuthResult": null,
+                        "creditAuthId": "test企鹅个人征信查询授权书",
+                        "frontFaceId": "test企鹅正脸照",
+                        "idcardFront": "2f4bf1dbfa882f4bf1dbfa88",
+                        "idcardBack": "2f4bf1dbfa88"
+                    }
+                ],
+                 "addUserInfo": {
+                    "liveStatus": "公司提供",
+                    "liveAddr": "广东省广州市天河区",
+                    "carInfo": "本人名下有车，无贷款",
+                    "eduInfo": "大学",
+                    "occupationType": "上班人群",
+                    "incomeFrom": "工资",
+                    "unitName": "广州智数信息技术有限公司",
+                    "unitTel": "020-12024641",
+                    "position": "工程师",
+                    "entryDate": 1548950400000,
+                    "bizFlow": "100000.00",
+                    "monthIncome": "10000~14999元",
+                    "acctepMaxRepay": "2000.00",
+                    "operatYear": null,
+                    "payedSocial": "缴纳本地社保",
+                    "yearIncome": "50000.00",
+                    "gpsInfo": "113.111432,23.211321",
+                    "ipAddr": "123.12.32.123",
+                    "marrInfo": "未婚"
                 },
-                addUserInfo:{
-                    "liveStatus":"自有住房",
-                    "liveAddr":"广州天河区..",
-                    "carInfo":"名下有车,无贷款",
-                    "eduInfo":"本科",
-                    "occupationType":"—",
-                    "incomeFrom":"工资",
-                    "unitName":"龙腾生物有限公司",
-                    "unitTel":"020-88212921",
-                    "position":"—",
-                    "operatingYear":"10年",
-                    "bizFlow":"—",
-                    "monthIncome":"￥12,000.00",
-                    "acctepMaxRepay":"—",
-                    "operatYear":"-",
-                    "payedSocial":"是",
-                    "yearIncome":"14.4",
-                    "gpsInfo":"—",
-                    "ipAddr":"—",
-                    "marrInfo":"已婚"
+                "mateUserInfo": {
+                    "mateName": "青蛙",
+                    "mateIdNo": "3243245349090909",
+                    "mateIncomeFrom": "工资",
+                    "mateMobile": "13131313113",
+                    "mateYearIncome": "50000.00",
+                    "mateUnit": "广州智数信息技术有限公司"
                 },
-                mateUserInfo:{
-                    "mateName":"陈敏",
-                    "mateIdNo":"440511198802214341",
-                    "mateIncomeFrom":"工资",
-                    "mateMobile":"13450228111",
-                    "mateYearIncome":"10",
-                    "mateUnit":"心形科技有限公司"
-                },
-                
-                contactUserInfo:{
-                    "firstContactName":"丁叮",
-                    "firstContactRel":"朋友",
-                    "firstContactMobile":"1997653212",
-                    "secondContactName":"陈晓明",
-                    "secondContactRel":"兄弟",
-                    "secondContactMobile":"13687601921"
-                }
+                "contactInfo": [
+                    {
+                        "userName": "测试arya朋友",
+                        "relationship": "朋友",
+                        "mobile": "15815854001"
+                    },
+                    {
+                        "userName": "测试arya第二朋友",
+                        "relationship": "朋友",
+                        "mobile": "89080880"
+                    }
+                ],
             }
         }
     }
@@ -1967,6 +2042,17 @@ class FinanceController extends Controller {
                 data:'传入的参数有误'
             }
         }
+    }
+    async adminUnlock() {
+        let result = this.ctx.query;
+        if(result.userId) {
+            this.ctx.body = {
+                code: 200,
+                msg: "SUCCESS",
+                data: "解锁用户成功"
+            }
+        }
+
     }
   
 }

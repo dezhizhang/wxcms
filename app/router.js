@@ -233,7 +233,9 @@ module.exports = app => {
  router.get('/financeAdmin/financeManagement/businessTypeList',controller.default.finance.businessTypeList);
  //
  router.get('/financeAdmin/financeManagement/orderStatusList',controller.default.finance.orderStatusList)
-
+ //解锁/启用管理员
+ router.get('/financeAdmin/admin/unlock',controller.default.finance.adminUnlock);
+ 
  
 
 
