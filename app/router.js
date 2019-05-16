@@ -235,6 +235,9 @@ module.exports = app => {
  router.get('/financeAdmin/financeManagement/orderStatusList',controller.default.finance.orderStatusList)
  //解锁/启用管理员
  router.get('/financeAdmin/admin/unlock',controller.default.finance.adminUnlock);
+ //用户列表-资产渠道下拉框
+ router.get('/financeAdmin/userManagement/assetChannelList',controller.default.finance.userAssetChannelList)
+
  
  
 

@@ -24,19 +24,40 @@ class FinanceController extends Controller {
     //用户登录
     async login() {
         let result = this.ctx.request.body;
-      
-        
-        this.ctx.body = {
-            code:200,
-            msg:'SUCCESS',
-            data:[]
+        console.log(typeof result.loginName)
+        if(result.loginName == undefined && result.password == undefined) {
+            this.ctx.body = {
+                code:404,
+                msg:'FAIL',
+                data:"用户名和密码不能为空"
+            }
+        } else if(result.loginName == undefined) {
+            this.ctx.body = {
+                code:404,
+                msg:'FAIL',
+                data:"用户名不能为空"
+            }
+        } else if(result.password == undefined) {
+            this.ctx.body = {
+                code:404,
+                msg:'FAIL',
+                data:"密码不能为空"
+            }
+        } else {
+            this.ctx.body = {
+                code:200,
+                msg:"SUCCESS",
+                data:{
+                    token:'sfksfkhhfdskjfdjhfkdfdjbfsdajhfdsjafbassdfjdsasjfhbfdjk'
+                }
+            }
         }
+      
     }
 
     //审核列表
     async auditList() {
         let result = this.ctx.query;
-        console.log(result);
         if(result.qudao!='ALL') {
             this.ctx.body = {
                 code:200,
@@ -2054,7 +2075,25 @@ class FinanceController extends Controller {
         }
 
     }
-  
+
+    async userAssetChannelList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data: [
+                {
+                    "channelNo": "ZC000001",
+                    "channelName": "中安"
+                },
+                {
+                    "channelNo": "ZC000002",
+                    "channelName": "华城"
+                }
+            ]
+        }
+    }
+
 }
 
 
