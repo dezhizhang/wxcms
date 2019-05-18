@@ -24,14 +24,15 @@ class FinanceController extends Controller {
     //用户登录
     async login() {
         let result = this.ctx.request.body;
-        console.log(typeof result.loginName)
-        if(result.loginName == undefined && result.password == undefined) {
+        console.log(result);
+
+        if(result.userName == undefined && result.password == undefined) {
             this.ctx.body = {
                 code:404,
                 msg:'FAIL',
                 data:"用户名和密码不能为空"
             }
-        } else if(result.loginName == undefined) {
+        } else if(result.userName == undefined) {
             this.ctx.body = {
                 code:404,
                 msg:'FAIL',
@@ -2182,6 +2183,15 @@ class FinanceController extends Controller {
                     "remark": "xxxxx,一段备注."
                 }
             }
+        }
+    }
+    async auditSave() {
+        let result = this.ctx.request.body;
+        console.log(result);
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:'新增审核层级成功！'
         }
     }
 

@@ -145,6 +145,8 @@ module.exports = app => {
  router.post('/financeAdmin/audit/update',controller.default.finance.auditUpdate);
  //审核详情查看
  router.get('/financeAdmin/audit/info/',controller.default.finance.auditInfo);
+ //新建审核配置
+ router.post('/financeAdmin/audit/save',controller.default.finance.auditSave);
  //管理员列表
  router.get('/financeAdmin/admin/list',controller.default.finance.adminList);
  //新增管理员列表
