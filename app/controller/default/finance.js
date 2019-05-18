@@ -555,13 +555,32 @@ class FinanceController extends Controller {
     //个人账号管理
     async sysUserInfo() {
         let result = this.ctx.query;
-        this.ctx.body = {
-            code:200,
-            msg:'SUCCESS',
-            data:{
-              
+        if(result.userId) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:{
+                    "userId": "LPQD1211111988771",
+                    "createTime": "12154545",
+                    "userName": "吴系挂",
+                    "affiliatedCompany": 2,
+                    "name": "关云长",
+                    "idNo": "421087199904094456",
+                    "idCardFront": "/upload?file=f997776",
+                    "idCardReverse": "/upload?file=f997776",
+                    "loginPassword": "2344444",
+                    "transactionPin": "222111",
+                    "signCertificate": "/upload?file=f997776"
+                }
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:'FAIL',
+                data:null
             }
         }
+       
     }
     //融资订单表表
     async orderList() {
@@ -2091,6 +2110,78 @@ class FinanceController extends Controller {
                     "channelName": "华城"
                 }
             ]
+        }
+    }
+    async destBizInsuranceStsList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "destBizInsuranceSts": "已出保单",
+                    "destBizStsId": 1
+                },
+                {
+                    "destBizInsuranceSts": "已退保",
+                    "destBizStsId": 2
+                }
+            ]
+        }
+    }
+    async destForceInsuPolicyStsList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "destForceStsId": 1,
+                    "destForceInsuPolicySts": "已出保单"
+                },
+                {
+                    "destForceStsId": 2,
+                    "destForceInsuPolicySts": "已退保"
+                }
+            ]
+        }
+    }
+    async channelList() {
+        let result = this.ctx.query;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "channelNo": "AS001",
+                    "channelType": "资产渠道"
+                }
+            ]
+        }
+    }
+    async adminInfo() {
+        let result  = this.ctx.query;
+        if(result.userId) {
+            this.ctx.body = {
+                code:200,
+                msg:"SUCCESS",
+                data:{
+                    "id": 1,
+                    "loginName": "jacnma",
+                    "name": "关公",
+                    "roleIds": [1, 2],
+                    "certFront": "xxx.jpg",
+                    "certBack": "xxxx.jpg",
+                    "companyName": "广州智数信息技术有限公司",
+                    "isCerRequired": false,
+                    "mobile": "13888888888",
+                    "channelAssertIds": [2, 3],
+                    "channelFundingIds": [1, 2],
+                    "defaultPassword": "132k12l142l124",
+                    "available": true,
+                    "remark": "xxxxx,一段备注."
+                }
+            }
         }
     }
 

@@ -236,7 +236,48 @@ module.exports = app => {
  //解锁/启用管理员
  router.get('/financeAdmin/admin/unlock',controller.default.finance.adminUnlock);
  //用户列表-资产渠道下拉框
- router.get('/financeAdmin/userManagement/assetChannelList',controller.default.finance.userAssetChannelList)
+ router.get('/financeAdmin/userManagement/assetChannelList',controller.default.finance.userAssetChannelList);
+ //标的物投保单-商业险状态下拉框
+ router.get('/financeAdmin/financeManagement/destBizInsuranceStsList',controller.default.finance.destBizInsuranceStsList);
+ //标的物投保单-交强险状态下拉框
+ router.get('/financeAdmin/financeManagement/destForceInsuPolicyStsList',controller.default.finance.destForceInsuPolicyStsList);
+ //用戶信息列表-渠道下拉框
+ router.get('/financeAdmin/userManagement/channelList',controller.default.finance.channelList);
+ //管理员详情
+ router.get('/financeAdmin/admin/info',controller.default.finance.adminInfo);
+ 
+
+
+
+
+ //进件系统
+ router.post('/financeEntrySystemApi/users/login',controller.default.entery.login);
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
  
  
