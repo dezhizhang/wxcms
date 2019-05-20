@@ -2162,6 +2162,7 @@ class FinanceController extends Controller {
     }
     async adminInfo() {
         let result  = this.ctx.query;
+        console.log(result)
         if(result.userId) {
             this.ctx.body = {
                 code:200,
@@ -2192,6 +2193,17 @@ class FinanceController extends Controller {
             code:200,
             msg:'SUCCESS',
             data:'新增审核层级成功！'
+        }
+    }
+    async adminSystemInfo() {
+        let result = this.ctx.request.body;
+        console.log(result)
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                token:'sjkfgdkjfgdhjkfgkjdfejn'
+            }
         }
     }
 

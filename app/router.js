@@ -247,6 +247,10 @@ module.exports = app => {
  router.get('/financeAdmin/userManagement/channelList',controller.default.finance.channelList);
  //管理员详情
  router.get('/financeAdmin/admin/info',controller.default.finance.adminInfo);
+
+
+ router.post('/financeAdmin/admin/systemInfo',controller.default.finance.adminSystemInfo);
+
  
 
 
