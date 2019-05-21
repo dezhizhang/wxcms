@@ -24,33 +24,11 @@ class FinanceController extends Controller {
     //用户登录
     async login() {
         let result = this.ctx.request.body;
-        console.log(result);
-
-        if(result.userName == undefined && result.password == undefined) {
-            this.ctx.body = {
-                code:404,
-                msg:'FAIL',
-                data:"用户名和密码不能为空"
-            }
-        } else if(result.userName == undefined) {
-            this.ctx.body = {
-                code:404,
-                msg:'FAIL',
-                data:"用户名不能为空"
-            }
-        } else if(result.password == undefined) {
-            this.ctx.body = {
-                code:404,
-                msg:'FAIL',
-                data:"密码不能为空"
-            }
-        } else {
-            this.ctx.body = {
-                code:200,
-                msg:"SUCCESS",
-                data:{
-                    token:'sfksfkhhfdskjfdjhfkdfdjbfsdajhfdsjafbassdfjdsasjfhbfdjk'
-                }
+        this.ctx.body = {
+            code:200,
+            msg:"SUCCESS",
+            data:{
+                token:'sfksfkhhfdskjfdjhfkdfdjbfsdajhfdsjafbassdfjdsasjfhbfdjk'
             }
         }
       
@@ -1859,115 +1837,39 @@ class FinanceController extends Controller {
             ]
         }
     }
-    async getRoleMenuByRoleId() {
+    async getHierarchicalMenuByRoleId() {
         let result = this.ctx.query;
         if(result.roleId) {
             this.ctx.body = {
                 code:200,
                 msg:'SUCCESS',
-                data:{
-                   menu:[{
-                    "menuId": 5,
-                    "moduleId":33,
-                    "menuUrl":"xzCredit/smartCompass",
-                    "parentId": 1,
-                    "menuName":"SQL监控",
-                    "isLeaf":false,
-                    "menuIcon":"sql-icon",
-                    "isAvailable":true,
-                    "zorder":3,
-                    "createdTime":"2019-04-16 11:55:00",
-                    "updateTime":"2019-04-16 11:55:00",
-                    "createdUser":"u111110000",
-                    "updatedUser":"u333937636",
-                     childrenMenu:[
-                         {
-                            "menuId": 12,
-                            "moduleId":33,
-                            "menuUrl":"xzCredit/smartCompass",
-                            "parentId": 1,
-                            "menuName":"SQL监控",
-                            "isLeaf":false,
-                            "menuIcon":"sql-icon",
-                            "isAvailable":true,
-                            "zorder":3,
-                            "createdTime":"2019-04-16 11:55:00",
-                            "updateTime":"2019-04-16 11:55:00",
-                            "createdUser":"u111110000",
-                            "updatedUser":"u333937636"
-                         },
-                         {
-                            "menuId": 11,
-                            "moduleId":33,
-                            "menuUrl":"xzCredit/smartCompass",
-                            "parentId": 1,
-                            "menuName":"SQL监控",
-                            "isLeaf":false,
-                            "menuIcon":"sql-icon",
-                            "isAvailable":true,
-                            "zorder":3,
-                            "createdTime":"2019-04-16 11:55:00",
-                            "updateTime":"2019-04-16 11:55:00",
-                            "createdUser":"u111110000",
-                            "updatedUser":"u333937636"
-                         }
-                     ]
-                   },
-                   {
-                    "menuId": 2,
-                    "moduleId":33,
-                    "menuUrl":"xzCredit/smartCompass",
-                    "parentId": 1,
-                    "menuName":"SQL监控",
-                    "isLeaf":false,
-                    "menuIcon":"sql-icon",
-                    "isAvailable":true,
-                    "zorder":3,
-                    "createdTime":"2019-04-16 11:55:00",
-                    "updateTime":"2019-04-16 11:55:00",
-                    "createdUser":"u111110000",
-                    "updatedUser":"u333937636",
-                     childrenMenu:[
-                         {
-                            "menuId": 4,
-                            "moduleId":33,
-                            "menuUrl":"xzCredit/smartCompass",
-                            "parentId": 1,
-                            "menuName":"SQL监控",
-                            "isLeaf":false,
-                            "menuIcon":"sql-icon",
-                            "isAvailable":true,
-                            "zorder":3,
-                            "createdTime":"2019-04-16 11:55:00",
-                            "updateTime":"2019-04-16 11:55:00",
-                            "createdUser":"u111110000",
-                            "updatedUser":"u333937636"
-                         },
-                         {
-                            "menuId": 9,
-                            "moduleId":33,
-                            "menuUrl":"xzCredit/smartCompass",
-                            "parentId": 1,
-                            "menuName":"SQL监控",
-                            "isLeaf":false,
-                            "menuIcon":"sql-icon",
-                            "isAvailable":true,
-                            "zorder":3,
-                            "createdTime":"2019-04-16 11:55:00",
-                            "updateTime":"2019-04-16 11:55:00",
-                            "createdUser":"u111110000",
-                            "updatedUser":"u333937636"
-                         }
-                     ]
-                   }
+                data:[
+                    {
+                        "menuId": 1,
+                        "menuName": "用户管理",
+                        "parentId": null,
+                        "childrenMenu": [
+                            {
+                                "menuId": 3,
+                                "menuName": "修改用户",
+                                "parentId": 1,
+                                "childrenMenu": []
+                            },
+                            {
+                                "menuId": 2,
+                                "menuName": "新增用户",
+                                "parentId": 1,
+                                "childrenMenu": []
+                            },
+                            {
+                                "menuId": 4,
+                                "menuName": "用户详情",
+                                "parentId": 1,
+                                "childrenMenu": []
+                            }
+                        ]
+                    }
                 ]
-                }
-            }
-        } else {
-            this.ctx.body = {
-                code:400,
-                msg:'FAIL',
-                data:'参数有误'
             }
         }
     }
@@ -2204,6 +2106,35 @@ class FinanceController extends Controller {
             data:{
                 token:'sjkfgdkjfgdhjkfgkjdfejn'
             }
+        }
+    }
+
+    async getAllCapitalChannelDropDownBoxList() {
+        this.ctx.body = {
+           code:200,
+           msg:"SUCCESS",
+           data:[
+            {
+                "channelNo": "ZC000001",
+                "channelName": "中安"
+            }
+        ]
+        }
+    }
+    async updateRoleActionsPermission() {
+        let result = this.ctx.request.body;
+        console.log(result);
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:'修改成功'
+        }
+    }
+    async adminSave() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'新增管理员成功！'
         }
     }
 
