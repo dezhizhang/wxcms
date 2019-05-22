@@ -246,6 +246,14 @@ module.exports = app => {
  //核心系统
  //用户登录
  router.post('/users/login',controller.default.entery.login);
+ //显示用户列表
+ router.post('/user/list',controller.default.entery.userList);
+ //显示融资订单列表
+ router.post('/financing/listOrder',controller.default.entery.listOrder);
+ //融资订单-进件审核列表
+ router.post('/auditTask/entry/list',controller.default.entery.auditTaskList);
+ 
+
 
  
 
