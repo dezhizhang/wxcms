@@ -2141,10 +2141,12 @@ class FinanceController extends Controller {
         let result = this.ctx.request.body;
         if(result.insuranceNo) {
             this.ctx.body = {
-                code:200,
-                msg:'SUCCESS',
-                data:[
-                    {
+                code: 200,
+                msg : "SUCCESS",
+                data: {
+                "total": 2,
+                "rows":[
+                        {
                         "riskName": "盗抢险",
                         "totalCoverage": 5000,
                         "insuranceNumber": 0,
@@ -2152,8 +2154,8 @@ class FinanceController extends Controller {
                         "riskCode": "005",
                         "riskAddType": "0",
                         "everyCoverage": 1543
-                    },
-                    {
+                        },
+                        {
                         "riskName": "车损险",
                         "totalCoverage": 5000,
                         "insuranceNumber": 3,
@@ -2161,8 +2163,9 @@ class FinanceController extends Controller {
                         "riskCode": "001",
                         "riskAddType": "0",
                         "everyCoverage": 1543
-                    }
-                ]
+                        }
+                    ]
+                }
             }
         } else {
             this.ctx.body = {
