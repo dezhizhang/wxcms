@@ -2137,6 +2137,41 @@ class FinanceController extends Controller {
             msg:'新增管理员成功！'
         }
     }
+    async insuranceKindList() {
+        let result = this.ctx.request.body;
+        if(result.insuranceNo) {
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:[
+                    {
+                        "riskName": "盗抢险",
+                        "totalCoverage": 5000,
+                        "insuranceNumber": 0,
+                        "notDeductibleMark": "是",
+                        "riskCode": "005",
+                        "riskAddType": "0",
+                        "everyCoverage": 1543
+                    },
+                    {
+                        "riskName": "车损险",
+                        "totalCoverage": 5000,
+                        "insuranceNumber": 3,
+                        "notDeductibleMark": "是",
+                        "riskCode": "001",
+                        "riskAddType": "0",
+                        "everyCoverage": 1543
+                    }
+                ]
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'小姐姐你忘记了传参数了',
+                data:[]
+            }
+        }
+    }
 
 }
 

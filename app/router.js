@@ -237,6 +237,8 @@ module.exports = app => {
  //新增管理员
  router.post('/financeAdmin/admin/save',controller.default.finance.adminSave)
  router.post('/financeAdmin/admin/systemInfo',controller.default.finance.adminSystemInfo);
+ //获取标的物投保单
+ router.post('/financeAdmin/financeManagement/insuranceKindList',controller.default.finance.insuranceKindList)
 
  
 
