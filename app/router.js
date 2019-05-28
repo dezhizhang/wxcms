@@ -247,13 +247,36 @@ module.exports = app => {
 
  //核心系统
  //用户登录
- router.post('/users/login',controller.default.entery.login);
+ router.post('/login',controller.default.entery.login);
  //显示用户列表
- router.post('/user/list',controller.default.entery.userList);
+ router.post('/bizUser/list',controller.default.entery.userList);
  //显示融资订单列表
  router.post('/financing/listOrder',controller.default.entery.listOrder);
  //融资订单-进件审核列表
  router.post('/auditTask/entry/list',controller.default.entery.auditTaskList);
+ //获取用户基础信息
+ router.post('/init/getUserBase',controller.default.entery.getUserBase);
+ //文件上传接口
+ router.post('/init/infoResure',controller.default.entery.infoResure);
+ //设置登录密码
+ router.post('/init/setPassword',controller.default.entery.setPassword);
+ //申请证书
+ router.post('/init/applyCert',controller.default.entery.applyCert);
+ //用户的渠道信息
+ router.post('/bizUser/channel/manageList',controller.default.entery.manageList);
+ //获取所有有管理权限的渠道信息
+ router.post('/order/channel/manageList',controller.default.entery.orderManageList);
+ //获取有关联权限的的产品信息
+ router.post('/order/product/manageList',controller.default.entery.productManageList);
+ //获取所有有管理权限的业务类型信息
+ router.post('/order/bizType/manageList',controller.default.entery.bizTypeManageList);
+ //显示融资订单列表
+ router.post('/order/list',controller.default.entery.orderList)
+
+
+
+
+
  
 
 

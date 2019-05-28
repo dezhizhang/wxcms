@@ -6,12 +6,13 @@ const Controller = require('egg').Controller;
 class EnteryController extends Controller {
     async login() {
         let result = this.ctx.request.body;
+        console.log(result);
 
         this.ctx.body = {
             code:200,
             msg:"SUCCESS",
             data:{
-                "token":"",
+                "token":"skdfjdhfdsgbfjdsjdskfndsfbjbdfvffjdsn",
                 "username":"张三吧",
                 "id":"xxxx",
                 "isInitialize":false,
@@ -56,6 +57,125 @@ class EnteryController extends Controller {
             data:[{}]
         }
     }
+    async getUserBase() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                "name":"张三",
+                "idNo":"440311198802142571",
+                "certFront":"",
+                "certBack":""
+            },
+            timestamp:"1556000445"
+
+        }
+    }
+    //文件上传接口
+    async infoResure() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'验证成功',
+            data:{},
+            timestamp:'1556000445'
+        }
+    }
+    //设置登录密码
+    async setPassword() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'重置密码成功',
+            data:{},
+            timestamp:'1556000445' 
+
+        }
+    }
+    //申请证书
+    async applyCert() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{},
+            timestamp:'1556000445'
+        }
+    }
+    //渠道信息
+    async manageList() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "channelName":"",
+                    "channelCode":""
+                }
+            ]
+        }
+
+    }
+    //获取所有有管理权限的渠道信息
+    async orderManageList() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "channelName":"",
+                    "channelCode":""
+                }
+            ]
+        }
+    }
+    //获取有关联权限的的产品信息
+    async productManageList() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[
+                {
+                    "productCode":"11111",
+                    "productName":"22222"
+                }
+            ]
+        }
+    }
+    //获取所有有管理权限的业务类型信息
+    async bizTypeManageList() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data: [
+                {
+                    "channelName":"",
+                    "channelCode":""
+                }
+            ]
+        }
+    }
+    //显示融资订单列表
+    async orderList() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:[{
+                    "bizNo":"融资订单ID",
+                    "assetChannelNo":"资产渠道",
+                    "userNo":"融资用户",
+                    "productNo":"产品名称",
+                    "businessTypeNo":"业务类型",
+            }]
+        }
+    }
+
 }
 
 
