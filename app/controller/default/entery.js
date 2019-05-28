@@ -175,6 +175,30 @@ class EnteryController extends Controller {
             }]
         }
     }
+    //显示融资订单审核列表
+    async entryList() {
+        let result = this.ctx.request.body;
+        let t = new Date()
+        this.ctx.body = {
+            code:200,
+            msg:"SUCCESS",
+            timestamp:"",
+            data:[
+                {
+                    "id":1232323,
+                    "assetChannelNo":"中安",
+                    "name":"张三",
+                    "bizNo":"XZ34835434Y4834",
+                    "taskType":	"自营",
+                    "createdDate":t.getTime(),
+                    "status":"1",
+                    "auditNo":"2042",
+                    "userType":"1",
+                    "siFinal":true
+                }
+            ]
+        }
+    }
 
 }
 

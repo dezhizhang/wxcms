@@ -271,7 +271,9 @@ module.exports = app => {
  //获取所有有管理权限的业务类型信息
  router.post('/order/bizType/manageList',controller.default.entery.bizTypeManageList);
  //显示融资订单列表
- router.post('/order/list',controller.default.entery.orderList)
+ router.post('/order/list',controller.default.entery.orderList);
+ //显示融资订单审核列表
+ router.post('/auditTask/entryList',controller.default.entery.entryList);
 
 
 
