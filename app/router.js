@@ -246,10 +246,15 @@ module.exports = app => {
 
 
  //核心系统
+
+ //获取企业
+ router.post('/share/getSignSubjectName',controller.default.entery.getSignSubjectName);
  //用户登录
  router.post('/login',controller.default.entery.login);
  //显示用户列表
  router.post('/bizUser/list',controller.default.entery.userList);
+ //用户列表详情 - 个人
+ router.post('/bizUser/userDetail/*',controller.default.entery.userDetail);
  //显示融资订单列表
  router.post('/financing/listOrder',controller.default.entery.listOrder);
  //融资订单-进件审核列表
