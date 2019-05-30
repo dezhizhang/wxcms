@@ -48,52 +48,36 @@ module.exports = app => {
   
   //用户加入token
   router.post('/api/token/user',controller.default.user.token);
-  
   //用户付款
  router.post('/api/order/pay',controller.default.user.pay);
- 
  //获取订单列表
  router.get('/api/user/order',controller.default.user.order);
-
-
  //qq上传接口
  router.post('/api/user/uploadList',controller.default.user.uploadList);
-
  //我的融资订单
  router.post('/financeEntryWebApi/orders/findUserOrderLists',controller.default.user.list)
 
 
-
  //智数金融平台接口
  router.post('/financeAdmin/user/login',controller.default.user.login);
- 
  //分期产品列表
  router.post('/financeEntryWebApi/product/list',controller.default.user.product)
-
  //分期产品上传接口
  router.post('/financeEntryWebApi/product/uploadList',controller.default.user.productList);
-
  //融资订单详情
  router.post('/financeEntryWebApi/orders/detail',controller.default.user.detail);
-
  //用户还款计划接口
  router.post('/financeEntryWebApi/orders/replayPlans',controller.default.user.replayPlans);
- 
  //用户签名
  router.post('/financeEntryWebApi/orders/sign',controller.default.user.sign);
- 
  //登陆验证码获取
  router.post('/financeEntryWebApi/user/sendLoginCode',controller.default.user.sendLoginCode);
-
  //用户实名返显
  router.post('/financeEntryWebApi/user/verifiyInfo',controller.default.user.verifiyInfo);
-
  //用户实名认证
  router.post('/financeEntryWebApi/user/ocrVerifiy',controller.default.user.ocrVerifiy);
-
  //身份证反选上传接口
  router.post('/financeEntryWebApi/user/uploadVerifiyInfo',controller.default.user.uploadVerifiyInfo);
-
  //上脸识别上传接口
  router.post('/financeEntryWebApi/user/uploadFaceInfo',controller.default.user.uploadFaceInfo);
 
@@ -102,13 +86,10 @@ module.exports = app => {
  //核身小程序
  //动态码校验接口
  router.post('/financeEntrySystemApi/v1/users/verifyAuthCode',controller.default.nuclear.verifyAuthCode);
-
  //实名认证反显
  router.get('/financeEntrySystemApi/v1/users/verifiyInfo',controller.default.nuclear.verifiyInfo);
-
  //身体上传
  router.post('/financeEntrySystemApi/verify/ocrVerify',controller.default.nuclear.ocrVerify);
-
  //人脸识别
  router.post('/financeEntrySystemApi/verify/faceVerify',controller.default.nuclear.faceVerify);
 
@@ -274,6 +255,8 @@ module.exports = app => {
  router.post('/order/list',controller.default.entery.orderList);
  //显示融资订单审核列表
  router.post('/auditTask/entryList',controller.default.entery.entryList);
+ //获取签章主体名称
+ router.post('/share/getSignSubjectName',controller.default.entery.getSignSubjectName)
 
 
 

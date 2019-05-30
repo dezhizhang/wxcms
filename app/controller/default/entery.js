@@ -199,6 +199,15 @@ class EnteryController extends Controller {
             ]
         }
     }
+    //获取签章主体名称
+    async getSignSubjectName() {
+        let result = this.ctx.request.body;
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:null
+        }
+    }
 
 }
 
