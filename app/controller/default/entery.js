@@ -6,8 +6,6 @@ const Controller = require('egg').Controller;
 class EnteryController extends Controller {
     async login() {
         let result = this.ctx.request.body;
-        console.log(result);
-
         this.ctx.body = {
             code:200,
             msg:"SUCCESS",
@@ -26,7 +24,8 @@ class EnteryController extends Controller {
         let result = this.ctx.request.body;
         this.ctx.body = {
             code:200,
-            msg:'SUCCESS',
+            msg:"SUCCESS",
+            timestamp:"",
             data:[
                 {
                     "userNo":"LPC12012018001",
