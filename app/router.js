@@ -274,6 +274,29 @@ module.exports = app => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //ajax 
+ router.post('/api/login',controller.default.ajax.login);
+
+
+
+
+
+
+
  
 
 
