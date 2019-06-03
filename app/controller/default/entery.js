@@ -301,6 +301,83 @@ class EnteryController extends Controller {
       ]
     }
   }
+  //选择省
+  async choiceProvince() {
+     let result = this.ctx.request.body;
+     this.ctx.body = {
+       code:200,
+       msg:'SUCCESS',
+       data:[
+        {
+           "province": "广东省"
+       },
+       {
+           "province": "青海省"
+       }]
+     }
+  }
+  //选择市
+  async choiceCity() {
+    let result = this.ctx.request.body;
+    if(result.province) {
+      this.ctx.body = {
+        code:200,
+        msg:'SUCCESS',
+        data:[
+          {
+              "province": "广东省",
+              "city": "韶关市"
+          },
+          {
+              "province": "广东省",
+              "city": "阳江市"
+          }]
+      }
+    } else {
+      this.ctx.body = {
+        code:404,
+        msg:'传入的参数有误',
+        data:[]
+      }
+    }
+  }
+  //文件上传
+  async uploadFile() {
+    let parts = this.ctx.multipart({ autoFields: true });
+    let files = {};               
+    let stream;
+    while ((stream = await parts()) != null) {
+        if (!stream.filename) {          
+        break;
+        }       
+        let fieldname = stream.fieldname;  //file表单的名字
+
+        //上传图片的目录
+        let dir=await this.service.tools.getUploadFile(stream.filename);
+        let target = dir.uploadDir;
+        let writeStream = fs.createWriteStream(target);
+
+        await pump(stream, writeStream);  
+
+        files=Object.assign(files,{
+        [fieldname]:dir.saveDir    
+        })
+        
+    }      
+
+
+    var formFields=Object.assign(files,parts.field);
+
+    //增加商品信息
+    let themeImage =new this.ctx.model.Theme(formFields);    
+    var result=await themeImage.save();
+
+    this.ctx.body = {
+        code:200,
+        success:true,
+        message:'上传图片成功'
+    }
+  }
 
 }
 

@@ -261,7 +261,14 @@ module.exports = app => {
  //显示融资订单审核列表
  router.post('/auditTask/entryList',controller.default.entery.entryList);
  //获取签章主体名称
- router.post('/share/getSignSubjectName',controller.default.entery.getSignSubjectName)
+ router.post('/share/getSignSubjectName',controller.default.entery.getSignSubjectName);
+ //选择省
+ router.post('/areaChioce/province',controller.default.entery.choiceProvince);
+ //选择市
+ router.post('/areaChioce/city',controller.default.entery.choiceCity);
+ //文件上传接口
+ router.post('/api/uploadFile',controller.default.entery.uploadFile);
+
 
 
 

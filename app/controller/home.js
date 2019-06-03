@@ -8,8 +8,6 @@ class HomeController extends Controller {
     await this.ctx.render('admin/index');
 
   }
-
-  
 }
 
 
