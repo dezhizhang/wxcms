@@ -376,7 +376,8 @@ class EnteryController extends Controller {
     this.ctx.body = {
         code:200,
         success:true,
-        message:'上传图片成功'
+        msg:'上传图片成功',
+        url:'http://baidu.com'
     }
   }
 
