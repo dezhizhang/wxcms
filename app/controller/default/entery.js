@@ -377,7 +377,10 @@ class EnteryController extends Controller {
         code:200,
         success:true,
         msg:'上传图片成功',
-        url:'http://baidu.com'
+        url:'http://baidu.com',
+        data:{
+          "fileId": "53f3ea8e-58c7-44b6-a69c-85f7ffce849b"
+        }
     }
   }
 
