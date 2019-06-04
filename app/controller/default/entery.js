@@ -371,6 +371,7 @@ class EnteryController extends Controller {
     //增加商品信息
     let themeImage =new this.ctx.model.Theme(formFields);    
     var result=await themeImage.save();
+    console.log(result)
 
     this.ctx.body = {
         code:200,
