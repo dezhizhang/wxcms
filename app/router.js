@@ -268,6 +268,12 @@ module.exports = app => {
  router.post('/areaChioce/city',controller.default.entery.choiceCity);
  //文件上传接口
  router.post('/api/uploadFile',controller.default.entery.uploadFile);
+ //新增C用户车险-录入标的物
+ router.post('/api/userCarInsurance/enterSubjectMatterToC',controller.default.entery.addSubject);
+ //选择金融产品
+ router.post('/api/product/getProducts',controller.default.entery.getProducts);
+ //还款模式
+ router.post('/api/product/getRepayWayAndRepayTypeByProductNo',controller.default.entery.replayWay)
 
 
 

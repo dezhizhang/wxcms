@@ -383,6 +383,70 @@ class EnteryController extends Controller {
         }
     }
   }
+  //新增C用户车险-录入标的物
+  async addSubject() {
+    let result = this.ctx.request.body;
+    console.log(result);
+    this.ctx.body = {
+      code:200,
+      msg:'SUCCESS',
+      data:null
+    }
+  }
+  //选择金融产品
+  async getProducts() {
+     this.ctx.body = {
+       code:200,
+       msg:'SUCESS',
+       data:[
+        {
+            "productName": "分期汇",
+            "productNo": "CP000007"
+        },
+        {
+            "productName": "逸百年车险分期-手写签署3",
+            "productNo": "CP000001"
+        },
+        {
+            "productName": "逸百年车险分期-手写签署3",
+            "productNo": "CP000002"
+        },
+        {
+            "productName": "逸百年车险分期-手写签署3",
+            "productNo": "CP000003"
+        },
+        {
+            "productName": "分期汇-1-电子签章",
+            "productNo": "CP000004"
+        },
+        {
+            "productName": "分期汇-2-电子签章",
+            "productNo": "CP000005"
+        },
+        {
+            "productName": "分期汇-3-电子签章",
+            "productNo": "CP000006"
+        }
+      ]
+     }
+  }
+  //还款模式
+  async replayWay() {
+     let result = this.ctx.request.body;
+     if(result.productNo) {
+       this.ctx.body = {
+          code:200,
+          msg:'SUCCESS',
+          data:[
+            {
+                "repayType": "3",
+                "repayWay": 1,
+                "repayWayName": "等额本金"
+            }
+          ]
+       }
+     }
+  }
 
 }
 
