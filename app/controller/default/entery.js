@@ -437,15 +437,54 @@ class EnteryController extends Controller {
        this.ctx.body = {
           code:200,
           msg:'SUCCESS',
-          data:[
-            {
-                "repayType": "3",
-                "repayWay": 1,
-                "repayWayName": "等额本金"
-            }
+          data: [
+              {
+                  "repayType": "1",
+                  "repayWay": "1",
+                  "repayWayName": "等额本金"
+              },
+              {
+                  "repayType": "2",
+                  "repayWay": "2",
+                  "repayWayName": "先息后本"
+              }
           ]
        }
      }
+  }
+  //融资期限
+  async getTerms() {
+    let result = this.ctx.request.body;
+    if(result.productNo && result.repayWay) {
+      this.ctx.body = {
+        code:200,
+        msg:'SUCCESS',
+        data:{
+          "term": ['6','9','12']
+        }
+      }
+    } else {
+      this.ctx.body = {
+        code:404,
+        msg:'参数有误',
+        data:null
+      }
+    }
+  }
+  //成本率
+  async costRate() {
+    let result = this.ctx.request.body;
+    if(result.productNo && result.repayWay && result.term && result.applyAmt) {
+      this.ctx.body = {
+        code:200,
+        msg:'SUCCESS',
+        data:[
+          {
+            "loanCostRate": '50.0%'
+          }
+        ]
+      }
+    }
   }
 
 }

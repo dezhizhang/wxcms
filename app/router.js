@@ -273,7 +273,12 @@ module.exports = app => {
  //选择金融产品
  router.post('/api/product/getProducts',controller.default.entery.getProducts);
  //还款模式
- router.post('/api/product/getRepayWayAndRepayTypeByProductNo',controller.default.entery.replayWay)
+ router.post('/api/product/getRepayWayAndRepayType',controller.default.entery.replayWay);
+ //融资期限
+ router.post('/api/product/getTerms',controller.default.entery.getTerms);
+ //成本率
+ router.post('/api/product/getLoanCostRate',controller.default.entery.costRate);
+ 
 
 
 
