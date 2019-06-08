@@ -92,6 +92,8 @@ module.exports = app => {
  router.post('/financeEntrySystemApi/verify/ocrVerify',controller.default.nuclear.ocrVerify);
  //人脸识别
  router.post('/financeEntrySystemApi/verify/faceVerify',controller.default.nuclear.faceVerify);
+ //测试登录 
+ router.get('/financeAdmin/api/user/login',controller.default.nuclear.userLogin);
 
 
  //中控系统接口

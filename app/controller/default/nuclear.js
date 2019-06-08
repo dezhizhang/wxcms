@@ -171,6 +171,16 @@ class NuclearController extends Controller {
             data:null
         }
     }
+    //测试登录
+    async userLogin() {
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:{
+                login:true
+            }
+        }
+    }
 }
 
 
