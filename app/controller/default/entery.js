@@ -2,7 +2,6 @@
 const fs = require('fs');
 const pump = require('pump');
 const Controller = require('egg').Controller;
-
 class EnteryController extends Controller {
   async login() {
     let result = this.ctx.request.body;
