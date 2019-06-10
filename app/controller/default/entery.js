@@ -480,9 +480,32 @@ class EnteryController extends Controller {
         msg:'SUCCESS',
         data:[
           {
-            "loanCostRate": '50.0%'
+            "loanCostRate": '50.0'
           }
         ]
+      }
+    } else {
+      this.ctx.body = {
+        code:400,
+        msg:'传入的参数有误',
+        data:null
+      }
+    }
+  }
+  //新增C用户车险-融资申请
+  async applyToC() {
+    let result = this.ctx.request.body;
+    if(result.needPayOtherInsure) {
+      this.ctx.body = {
+        code:200,
+        msg:'SUCCESS',
+        data:null
+      }
+    } else {
+      this.ctx.body = {
+        code:404,
+        msg:'传入的参数有误',
+        data:null
       }
     }
   }

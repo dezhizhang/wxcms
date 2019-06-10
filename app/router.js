@@ -280,6 +280,9 @@ module.exports = app => {
  router.post('/api/product/getTerms',controller.default.entery.getTerms);
  //成本率
  router.post('/api/product/getLoanCostRate',controller.default.entery.costRate);
+ //新增C用户车险-融资申请
+ router.post('/api/userCarInsurance/financingApplyToC',controller.default.entery.applyToC);
+ //
  
 
 
