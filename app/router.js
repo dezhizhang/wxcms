@@ -282,7 +282,8 @@ module.exports = app => {
  router.post('/api/product/getLoanCostRate',controller.default.entery.costRate);
  //新增C用户车险-融资申请
  router.post('/api/userCarInsurance/financingApplyToC',controller.default.entery.applyToC);
- //
+ //新增C用户车险-确认信息
+ router.get('/api/userCarInsurance/addUserCarInsuranceToC',controller.default.entery.insuranceToC)
  
 
 

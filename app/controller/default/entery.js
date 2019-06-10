@@ -509,6 +509,31 @@ class EnteryController extends Controller {
       }
     }
   }
+  //C用户车险-确认信息
+  async insuranceToC() {
+    let result = this.ctx.query;
+    if(result.userId) {
+        this.ctx.body = {
+          code:200,
+          msg:'SUCCESS',
+          data:{
+            'financeUser':{},
+            'subject':{},
+            'insuComBankAccoInfo':{},
+            'FinancingApply':{},
+            'payAccount':{},
+            'repayAccount':{},
+            'cRepaymentPlansList':{}
+          }
+        }
+    } else {
+      this.ctx.body = {
+        code:200,
+        msg:'SUCCESS'
+
+      }
+    }
+  }
 
 }
 
