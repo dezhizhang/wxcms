@@ -517,7 +517,12 @@ class EnteryController extends Controller {
           code:200,
           msg:'SUCCESS',
           data:{
-            'financeUser':{},
+            'financeUser':{
+              "userType":"个人",
+              "name":"王大",
+              "idNo":"6789 XXXX XXXX XXXX",
+              "mobile":"136XXXXXXXX"
+            },
             'financeTrial':{
               "applyAmt":"39000",
               "loanCostRate":"12",
@@ -530,8 +535,142 @@ class EnteryController extends Controller {
               "forceInsuPremium":"6000",
               "carTaxAmount":"6000"
             },
-            'insuComBankAccoInfo':{},
+            'cRepaymentPlansList':[
+                {
+                  "curTerm":'1',
+                  "curDueDate":date.getTime(),
+                  "totalRepayment":"6000",
+                  "capital":"1000",
+                  "interest":"300"
+                },
+                {
+                  "curTerm":'2',
+                  "curDueDate":date.getTime(),
+                  "totalRepayment":"6000",
+                  "capital":"1000",
+                  "interest":"300"
+                },
+                {
+                  "curTerm":'3',
+                  "curDueDate":date.getTime(),
+                  "totalRepayment":"6000",
+                  "capital":"1000",
+                  "interest":"300"
+                },
+                {
+                  "curTerm":'4',
+                  "curDueDate":date.getTime(),
+                  "totalRepayment":"6000",
+                  "capital":"1000",
+                  "interest":"300"
+                }
+
+            ],
             'FinancingApply':{},
+            'payAccount':{
+              "isDirectPay":true,
+              "accountName":"天安财产保险股份有限公司青岛分公司",
+              "accountId":"6789 XXXX XXXX XXXX",
+              "bankNo":"工商银行",
+              "bankBranchName":"工行青岛市南第二支行营业部",
+              "bankCode":"XXXXXXXXXX"
+            },
+            'repayAccount':{
+              "isDirectPay":"否",
+              "accountName":"天安财产保险股份有限公司青岛分公司",
+              "accountId":"6789 XXXX XXXX XXXX",
+              "bankNo":"工商银行",
+              "bankBranchName":"工行青岛市南第二支行营业部",
+              "bankCode":"XXXXXXXXXX"
+            },
+            "financeOrder":{
+              "bizNo":"123456",
+              "productName":"小智金融",
+              "applyAmt":"1000",
+              "loanCostRate":"50",
+              "loanCost":"1000",
+              "termLimit":"10",
+              "interestDate":date.getTime(),
+              "dueDate":date.getTime(),
+              "repayWay":"线上支付",
+              "payDay":date.getTime(),
+              "repayType":"自动支付",
+              "needPayOtherInsure":false
+            }
+          }
+        }
+    } else {
+      this.ctx.body = {
+        code:200,
+        msg:'SUCCESS'
+
+      }
+    }
+  }
+  //确认信息B
+  async insuranceToB() {
+    let result = this.ctx.request.body;
+    let date = new Date()
+    if(result.bizNo && result.userNo) {
+        this.ctx.body = {
+          code:200,
+          msg:'SUCCESS',
+          data:{
+            'financeUser':{
+              "userType":"企业",
+              "epName":"龙腾物流有限公司",
+              "legelPersonName":"程伟",
+              "uniSocCode":"6789 XXXX XXXX XXXX"
+            },
+            'financeTrial':{
+              "applyAmt":"39000",
+              "loanCostRate":"12",
+              "loanCost":"4680",
+              "termLimit":"12",
+              "interestDate":date.getTime(),
+              "dueDate":date.getTime(),
+              "repayWay":"等额本息",
+              "payDay":date.getTime(),
+              "forceInsuPremium":"6000",
+              "carTaxAmount":"6000"
+            },
+            'cRepaymentPlansList':[
+                {
+                  "curTerm":'1',
+                  "curDueDate":date.getTime(),
+                  "totalRepayment":"6000",
+                  "capital":"1000",
+                  "interest":"300"
+                },
+                {
+                  "curTerm":'2',
+                  "curDueDate":date.getTime(),
+                  "totalRepayment":"6000",
+                  "capital":"1000",
+                  "interest":"300"
+                },
+                {
+                  "curTerm":'3',
+                  "curDueDate":date.getTime(),
+                  "totalRepayment":"6000",
+                  "capital":"1000",
+                  "interest":"300"
+                },
+                {
+                  "curTerm":'4',
+                  "curDueDate":date.getTime(),
+                  "totalRepayment":"6000",
+                  "capital":"1000",
+                  "interest":"300"
+                }
+
+            ],
+            'cloudAccountInfo':{
+              "accountName":"XXX保理有限公司",
+              "accountId":"6789 XXXX XXXX XXXX",
+              "bankNo":"工商银行",
+              "bankBranchName":"工行广州市天河支行"
+            },
             'payAccount':{
               "isDirectPay":true,
               "accountName":"天安财产保险股份有限公司青岛分公司",

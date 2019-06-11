@@ -283,7 +283,10 @@ module.exports = app => {
  //新增C用户车险-融资申请
  router.post('/userCarInsurance/financingApplyToC',controller.default.entery.applyToC);
  //新增C用户车险-确认信息
- router.post('/userCarInsurance/addUserCarInsuranceToC',controller.default.entery.insuranceToC)
+ router.post('/userCarInsurance/addUserCarInsuranceToC',controller.default.entery.insuranceToC);
+ //确认信息B
+ router.post('/userCarInsurance/addUserCarInsuranceToB',controller.default.entery.insuranceToB);
+ 
  
 
 
