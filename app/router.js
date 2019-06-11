@@ -269,21 +269,21 @@ module.exports = app => {
  //选择市
  router.post('/areaChioce/city',controller.default.entery.choiceCity);
  //文件上传接口
- router.post('/api/uploadFile',controller.default.entery.uploadFile);
+ router.post('/uploadFile',controller.default.entery.uploadFile);
  //新增C用户车险-录入标的物
- router.post('/api/userCarInsurance/enterSubjectMatterToC',controller.default.entery.addSubject);
+ router.post('/userCarInsurance/enterSubjectMatterToC',controller.default.entery.addSubject);
  //选择金融产品
- router.post('/api/product/getProducts',controller.default.entery.getProducts);
+ router.post('product/getProducts',controller.default.entery.getProducts);
  //还款模式
- router.post('/api/product/getRepayWayAndRepayType',controller.default.entery.replayWay);
+ router.post('/product/getRepayWayAndRepayType',controller.default.entery.replayWay);
  //融资期限
- router.post('/api/product/getTerms',controller.default.entery.getTerms);
+ router.post('/product/getTerms',controller.default.entery.getTerms);
  //成本率
- router.post('/api/product/getLoanCostRate',controller.default.entery.costRate);
+ router.post('/product/getLoanCostRate',controller.default.entery.costRate);
  //新增C用户车险-融资申请
- router.post('/api/userCarInsurance/financingApplyToC',controller.default.entery.applyToC);
+ router.post('/userCarInsurance/financingApplyToC',controller.default.entery.applyToC);
  //新增C用户车险-确认信息
- router.get('/api/userCarInsurance/addUserCarInsuranceToC',controller.default.entery.insuranceToC)
+ router.post('/userCarInsurance/addUserCarInsuranceToC',controller.default.entery.insuranceToC)
  
 
 

@@ -510,19 +510,58 @@ class EnteryController extends Controller {
   }
   //C用户车险-确认信息
   async insuranceToC() {
-    let result = this.ctx.query;
-    if(result.userId) {
+    let result = this.ctx.request.body;
+    let date = new Date()
+    if(result.bizNo && result.userNo) {
         this.ctx.body = {
           code:200,
           msg:'SUCCESS',
           data:{
             'financeUser':{},
-            'subject':{},
+            'financeTrial':{
+              "applyAmt":"39000",
+              "loanCostRate":"12",
+              "loanCost":"4680",
+              "termLimit":"12",
+              "interestDate":date.getTime(),
+              "dueDate":date.getTime(),
+              "repayWay":"等额本息",
+              "payDay":date.getTime(),
+              "forceInsuPremium":"6000",
+              "carTaxAmount":"6000"
+            },
             'insuComBankAccoInfo':{},
             'FinancingApply':{},
-            'payAccount':{},
-            'repayAccount':{},
-            'cRepaymentPlansList':{}
+            'payAccount':{
+              "isDirectPay":true,
+              "accountName":"天安财产保险股份有限公司青岛分公司",
+              "accountId":"6789 XXXX XXXX XXXX",
+              "bankNo":"工商银行",
+              "bankBranchName":"工行青岛市南第二支行营业部",
+              "bankCode":"XXXXXXXXXX"
+            },
+            'repayAccount':{
+              "isDirectPay":"否",
+              "accountName":"天安财产保险股份有限公司青岛分公司",
+              "accountId":"6789 XXXX XXXX XXXX",
+              "bankNo":"工商银行",
+              "bankBranchName":"工行青岛市南第二支行营业部",
+              "bankCode":"XXXXXXXXXX"
+            },
+            "financeOrder":{
+              "bizNo":"123456",
+              "productName":"小智金融",
+              "applyAmt":"1000",
+              "loanCostRate":"50",
+              "loanCost":"1000",
+              "termLimit":"10",
+              "interestDate":date.getTime(),
+              "dueDate":date.getTime(),
+              "repayWay":"线上支付",
+              "payDay":date.getTime(),
+              "repayType":"自动支付",
+              "needPayOtherInsure":false
+            }
           }
         }
     } else {
