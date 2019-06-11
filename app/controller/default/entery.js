@@ -711,6 +711,23 @@ class EnteryController extends Controller {
       }
     }
   }
+  //新增B用户车险
+  async addSubjectB() {
+    let result = this.ctx.request.body;
+    if(result.assetChannelNo) {
+      this.ctx.body = {
+        code:200,
+        msg:'SUCCESS',
+        data:null
+      }
+    } else {
+      this.ctx.body = {
+        code:400,
+        msg:'传入的参数有误',
+        data:null
+      }
+    }
+  }
 
 }
 

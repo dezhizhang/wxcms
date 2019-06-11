@@ -269,12 +269,12 @@ module.exports = app => {
  //选择市
  router.post('/areaChioce/city',controller.default.entery.choiceCity);
  //文件上传接口
- router.post('/uploadFile',controller.default.entery.uploadFile);
+ router.post('/financialEntCoreWeb/api/uploadFile',controller.default.entery.uploadFile);
  //新增C用户车险-录入标的物
  router.post('/userCarInsurance/enterSubjectMatterToC',controller.default.entery.addSubject);
  //选择金融产品
  router.post('product/getProducts',controller.default.entery.getProducts);
- //还款模式
+ //还款模式uploadFile 
  router.post('/product/getRepayWayAndRepayType',controller.default.entery.replayWay);
  //融资期限
  router.post('/product/getTerms',controller.default.entery.getTerms);
@@ -286,7 +286,10 @@ module.exports = app => {
  router.post('/userCarInsurance/addUserCarInsuranceToC',controller.default.entery.insuranceToC);
  //确认信息B
  router.post('/userCarInsurance/addUserCarInsuranceToB',controller.default.entery.insuranceToB);
- 
+ //新增B用户车险
+ router.post('/financialEntCoreWeb/userCarInsurance/enterSubjectMatterToB',controller.default.entery.addSubjectB);
+
+
  
 
 
