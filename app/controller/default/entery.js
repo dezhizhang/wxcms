@@ -1,6 +1,7 @@
 'use strict';
 const fs = require('fs');
 const pump = require('pump');
+const Excel = require('exceljs')
 const Controller = require('egg').Controller;
 class EnteryController extends Controller {
   async login() {
@@ -726,6 +727,19 @@ class EnteryController extends Controller {
         msg:'传入的参数有误',
         data:null
       }
+    }
+  }
+  //上传拊件
+  async uploadAttachment() {
+     let workbook = new Excel.Workbook();
+     workbook.eachSheet(function(worksheet, sheetId) {
+       console.log(worksheet);
+       console.log(sheetId);
+    });
+    this.ctx.body = {
+      code:200,
+      msg:'文件上传成功',
+      data:null
     }
   }
 

@@ -288,6 +288,8 @@ module.exports = app => {
  router.post('/userCarInsurance/addUserCarInsuranceToB',controller.default.entery.insuranceToB);
  //新增B用户车险
  router.post('/financialEntCoreWeb/userCarInsurance/enterSubjectMatterToB',controller.default.entery.addSubjectB);
+ //上传附件
+ router.post('/financialEntCoreWeb/api/uploadAttachment',controller.default.entery.uploadAttachment)
 
 
  
