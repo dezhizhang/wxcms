@@ -743,6 +743,15 @@ class EnteryController extends Controller {
     }
   }
 
+  async downFileBySid() {
+    let workBook = new Excel.Workbook();
+    let fileName = 'test.xlsx';
+    this.ctx.response.attachment(fileName);
+    this.ctx.status = 200;
+    await workBook.xlsx.write(this.ctx.res);
+    this.ctx.res.end()
+  }
+
 }
 
 

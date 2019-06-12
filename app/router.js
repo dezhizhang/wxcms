@@ -265,9 +265,9 @@ module.exports = app => {
  //获取签章主体名称
  router.post('/share/getSignSubjectName',controller.default.entery.getSignSubjectName);
  //选择省
- router.post('/areaChioce/province',controller.default.entery.choiceProvince);
+ router.post('/financialEntCoreWeb/api/areaChioce/province',controller.default.entery.choiceProvince);
  //选择市
- router.post('/areaChioce/city',controller.default.entery.choiceCity);
+ router.post('/financialEntCoreWeb/api/areaChioce/city',controller.default.entery.choiceCity);
  //文件上传接口
  router.post('/financialEntCoreWeb/api/uploadFile',controller.default.entery.uploadFile);
  //新增C用户车险-录入标的物
@@ -289,7 +289,11 @@ module.exports = app => {
  //新增B用户车险
  router.post('/financialEntCoreWeb/userCarInsurance/enterSubjectMatterToB',controller.default.entery.addSubjectB);
  //上传附件
- router.post('/financialEntCoreWeb/api/uploadAttachment',controller.default.entery.uploadAttachment)
+ router.post('/financialEntCoreWeb/api/uploadAttachment',controller.default.entery.uploadAttachment);
+ //文件下载
+ router.get('/financialEntCoreWeb/api/file/downFileBySid',controller.default.entery.downFileBySid);
+
+
 
 
  

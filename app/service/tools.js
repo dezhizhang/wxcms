@@ -30,8 +30,7 @@ class  ToolsService extends Service {
   
         }
     }
-
-   
+    
 }
 
 module.exports = ToolsService;
