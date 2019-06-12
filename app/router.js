@@ -265,11 +265,11 @@ module.exports = app => {
  //获取签章主体名称
  router.post('/share/getSignSubjectName',controller.default.entery.getSignSubjectName);
  //选择省
- router.post('/financialEntCoreWeb/api/areaChioce/province',controller.default.entery.choiceProvince);
+ router.get('/financialEntCoreWeb/api/areaChioce/province',controller.default.entery.choiceProvince);
  //选择市
  router.post('/financialEntCoreWeb/api/areaChioce/city',controller.default.entery.choiceCity);
  //文件上传接口
- router.post('/financialEntCoreWeb/api/uploadFile',controller.default.entery.uploadFile);
+ router.post('/financialEntCoreWeb/api/file/uploadFile',controller.default.entery.uploadFile);
  //新增C用户车险-录入标的物
  router.post('/userCarInsurance/enterSubjectMatterToC',controller.default.entery.addSubject);
  //选择金融产品
