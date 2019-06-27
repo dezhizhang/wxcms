@@ -233,37 +233,37 @@ module.exports = app => {
  //获取企业
  router.post('/share/getSignSubjectName',controller.default.entery.getSignSubjectName);
  //用户登录
- router.post('/login',controller.default.entery.login);
+ router.post('/financialEntCoreWeb/api/login',controller.default.entery.login);
  //显示用户列表
- router.post('/bizUser/list',controller.default.entery.userList);
+ router.post('/financialEntCoreWeb/api/bizUser/list',controller.default.entery.userList);
  //用户列表详情 - 个人
- router.post('/bizUser/userDetail/*',controller.default.entery.userDetail);
+ router.post('/financialEntCoreWeb/api/bizUser/userDetail/*',controller.default.entery.userDetail);
  //显示融资订单列表
- router.post('/financing/listOrder',controller.default.entery.listOrder);
+ router.post('/financialEntCoreWeb/api/financing/listOrder',controller.default.entery.listOrder);
  //融资订单-进件审核列表
- router.post('/auditTask/entry/list',controller.default.entery.auditTaskList);
+ router.post('/financialEntCoreWeb/api/auditTask/entry/list',controller.default.entery.auditTaskList);
  //获取用户基础信息
- router.post('/init/getUserBase',controller.default.entery.getUserBase);
+ router.post('/financialEntCoreWeb/api/init/getUserBase',controller.default.entery.getUserBase);
  //文件上传接口
- router.post('/init/infoResure',controller.default.entery.infoResure);
+ router.post('/financialEntCoreWeb/api/init/infoResure',controller.default.entery.infoResure);
  //设置登录密码
- router.post('/init/setPassword',controller.default.entery.setPassword);
+ router.post('/financialEntCoreWeb/api/init/setPassword',controller.default.entery.setPassword);
  //申请证书
- router.post('/init/applyCert',controller.default.entery.applyCert);
+ router.post('/financialEntCoreWeb/api/init/applyCert',controller.default.entery.applyCert);
  //用户的渠道信息
- router.post('/bizUser/channel/manageList',controller.default.entery.manageList);
+ router.post('/financialEntCoreWeb/api/bizUser/channel/manageList',controller.default.entery.manageList);
  //获取所有有管理权限的渠道信息
- router.post('/order/channel/manageList',controller.default.entery.orderManageList);
+ router.post('/financialEntCoreWeb/api/order/channel/manageList',controller.default.entery.orderManageList);
  //获取有关联权限的的产品信息
- router.post('/order/product/manageList',controller.default.entery.productManageList);
+ router.post('/financialEntCoreWeb/api/order/product/manageList',controller.default.entery.productManageList);
  //获取所有有管理权限的业务类型信息
- router.post('/order/bizType/manageList',controller.default.entery.bizTypeManageList);
+ router.post('/financialEntCoreWeb/api/order/bizType/manageList',controller.default.entery.bizTypeManageList);
  //显示融资订单列表
- router.post('/order/list',controller.default.entery.orderList);
+ router.post('/financialEntCoreWeb/api/order/list',controller.default.entery.orderList);
  //显示融资订单审核列表
- router.post('/auditTask/entryList',controller.default.entery.entryList);
+ router.post('/financialEntCoreWeb/api/auditTask/entryList',controller.default.entery.entryList);
  //获取签章主体名称
- router.post('/share/getSignSubjectName',controller.default.entery.getSignSubjectName);
+ router.post('/financialEntCoreWeb/api/share/getSignSubjectName',controller.default.entery.getSignSubjectName);
  //选择省
  router.get('/financialEntCoreWeb/api/areaChioce/province',controller.default.entery.choiceProvince);
  //选择市
@@ -271,21 +271,21 @@ module.exports = app => {
  //文件上传接口
  router.post('/financialEntCoreWeb/api/file/uploadFile',controller.default.entery.uploadFile);
  //新增C用户车险-录入标的物
- router.post('/userCarInsurance/enterSubjectMatterToC',controller.default.entery.addSubject);
+ router.post('/financialEntCoreWeb/api/userCarInsurance/enterSubjectMatterToC',controller.default.entery.addSubject);
  //选择金融产品
  router.post('product/getProducts',controller.default.entery.getProducts);
  //还款模式uploadFile 
- router.post('/product/getRepayWayAndRepayType',controller.default.entery.replayWay);
+ router.post('/financialEntCoreWeb/api/product/getRepayWayAndRepayType',controller.default.entery.replayWay);
  //融资期限
- router.post('/product/getTerms',controller.default.entery.getTerms);
+ router.post('/financialEntCoreWeb/api/product/getTerms',controller.default.entery.getTerms);
  //成本率
- router.post('/product/getLoanCostRate',controller.default.entery.costRate);
+ router.post('//financialEntCoreWeb/apiproduct/getLoanCostRate',controller.default.entery.costRate);
  //新增C用户车险-融资申请
- router.post('/userCarInsurance/financingApplyToC',controller.default.entery.applyToC);
+ router.post('/financialEntCoreWeb/api/userCarInsurance/financingApplyToC',controller.default.entery.applyToC);
  //新增C用户车险-确认信息
- router.post('/userCarInsurance/addUserCarInsuranceToC',controller.default.entery.insuranceToC);
+ router.post('/financialEntCoreWeb/api/userCarInsurance/addUserCarInsuranceToC',controller.default.entery.insuranceToC);
  //确认信息B
- router.post('/userCarInsurance/addUserCarInsuranceToB',controller.default.entery.insuranceToB);
+ router.post('/financialEntCoreWeb/api/userCarInsurance/addUserCarInsuranceToB',controller.default.entery.insuranceToB);
  //新增B用户车险
  router.post('/financialEntCoreWeb/userCarInsurance/enterSubjectMatterToB',controller.default.entery.addSubjectB);
  //上传附件

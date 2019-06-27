@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <form action="http://localhost:7001/api/uploadFile" method="post" enctype="multipart/form-data">
-        <ul>
-        <li><span> 身份证正面：</span> <input type="file" name="idCardImage"/></li>
-        <li><span>身份证反面：</span> <input type="file" name="idCardImageBack"/></li>
-        <li><span>产品名称：</span><input type="text" name="name"/></li>
-        <li><span>订单状态：</span><input type="text" name="idNo"/></li>
 
-        <li>
-                <br/>
-                <button type="submit" class="btn btn-primary">提交</button>
-            </li>
-        </ul>
-        </form>
-    </div>
+<head>
+  <meta name="viewport" content="width=device-width,user-scalable=no" />
+  <meta charset="UTF-8">
+  <title>消费分期</title>
+  <script type="text/javascript">
+    (function () {
+      var html = document.documentElement;
+      var htmlw = html.clientWidth;
+      html.style.fontSize = (htmlw * 100 / 750).toFixed(2) + 'px';
+    })();	
+  </script>
+  <style>
+    body,ul,h3,p,a,button {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    html {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    } 
+    .continner{
+        width: 100%;
+        height: 2rem;
+        overflow: hidden;
+        background-image: url('./img/bg.png');
+        background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="continner">
+  
+  </div>
 </body>
+
 </html>
