@@ -793,7 +793,6 @@ class EnteryController extends Controller {
   //金融产品列表
   async getFinancialProduct() {
     let result = this.ctx.request.body;
-   
     this.ctx.body = {
       code: 200,
       message: "请求成功",
@@ -828,6 +827,60 @@ class EnteryController extends Controller {
       ]
   }
     
+  }
+  //试算
+  async financingTrial() {
+    let result = this.ctx.request.body;
+    this.ctx.body = {
+      code: 200,
+      message: "请求成功",
+      "data": {
+          "bizNo": "6c2711e6e5a548aba3f9f32a76439fc3",
+          "period": 1,
+          "businessPremium": 10000,
+          "monthlyRepayment": 1667.17,
+          "forceInsurancePremium": 6689,
+          "fistPayment": 10704.17,
+          "trialUrl": "",
+          "totalInterest": 3,
+          "carTaxAmount": 2345,
+          "policyHolder": {
+              "attType": 50,
+              "attachment": "",
+              "specialClause": "特别条款",
+              "cardType": 1,
+              "linkAddress": "",
+              "subjectType": 1,
+              "cardNo": "110101199003076157",
+              "telNo": "",
+              "subjectName": ""
+          }
+      }
+  }
+  }
+  //获取保险公司
+  async companyQueryList() {
+    let result = this.ctx.request.body;
+    console.log(result);
+    this.ctx.body = {
+      "code": 200,
+      "message": "请求成功",
+      "data": [
+          {
+              "companyId": "600334743522893824",
+              "companyName": "是是22是"
+          },
+          {
+              "companyId": "600334801857273856",
+              "companyName": "是是222是"
+          },
+          {
+              "companyId": "600341291322171392",
+              "companyName": "是是22233是s33"
+          }
+      ]
+    }
+
   }
 
 }

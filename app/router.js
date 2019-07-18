@@ -301,6 +301,10 @@ module.exports = app => {
  router.post('/api/getSupportAssetChannelList',controller.default.entery.getSupportAssetChannelList);
  //获取金融产品列表
  router.post('/api/getFinancialProduct',controller.default.entery.getFinancialProduct);
+ //试算接口
+ router.post('/api/financing/trial',controller.default.entery.financingTrial);
+ //获取保险公司列表
+ router.post('/api/insuranceCompanyQueryList',controller.default.entery.companyQueryList)
 
 
 
