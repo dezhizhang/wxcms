@@ -295,6 +295,11 @@ module.exports = app => {
 
 
 
+ //核心系统新增
+ router.post('/api/getWhitelist',controller.default.entery.getWhitelist);
+
+
+
 
  
 

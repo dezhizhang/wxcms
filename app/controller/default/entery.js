@@ -752,6 +752,28 @@ class EnteryController extends Controller {
     this.ctx.res.end()
   }
 
+  //获取企业列表
+  async getWhitelist() {
+    let result = this.ctx.request.body;
+    this.ctx.body = {
+      code:200,
+      data: [
+        {
+            "userType": "2",
+            "userName": "苏菲",
+            "userIdNo": "40990998848484444"
+        },
+        {
+            "userType": "2",
+            "userName": "广州鸣人信息技术有限公司",
+            "userIdNo": "123456789989898"
+        }
+    ],
+      message:'请求成功'
+     
+    }
+  }
+
 }
 
 
