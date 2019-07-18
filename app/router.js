@@ -297,6 +297,11 @@ module.exports = app => {
 
  //核心系统新增
  router.post('/api/getWhitelist',controller.default.entery.getWhitelist);
+ //获取渠道
+ router.post('/api/getSupportAssetChannelList',controller.default.entery.getSupportAssetChannelList);
+ //获取金融产品列表
+ router.post('/api/getFinancialProduct',controller.default.entery.getFinancialProduct);
+
 
 
 

@@ -759,7 +759,7 @@ class EnteryController extends Controller {
       code:200,
       data: [
         {
-            "userType": "2",
+            "userType": "1",
             "userName": "苏菲",
             "userIdNo": "40990998848484444"
         },
@@ -772,6 +772,62 @@ class EnteryController extends Controller {
       message:'请求成功'
      
     }
+  }
+  //获取渠道
+  async getSupportAssetChannelList() {
+    let result = this.ctx.request.body;
+    this.ctx.body = {
+      code:200,
+      data:[
+        {
+          "channelNo":"ZC00001",
+          "channelName":"测试数据1"
+        },
+        {
+          "channelNo":"ZC00002",
+          "channelName":"测试数据2"
+        }
+      ]
+    }
+  }
+  //金融产品列表
+  async getFinancialProduct() {
+    let result = this.ctx.request.body;
+   
+    this.ctx.body = {
+      code: 200,
+      message: "请求成功",
+      data: [
+          {
+            "termList": [
+                {
+                    "repayWay": "等本等息",
+                    "term": "3",
+                      "financingRate": "5"
+                  },
+                  {
+                      "repayWay": "等本等息",
+                      "term": "12",
+                      "financingRate": "7"
+                  },
+                  {
+                      "repayWay": "先息后本",
+                      "term": "6",
+                      "financingRate": "6"
+                  }
+              ],
+              "repayModeName": "等本等息",
+              "supportRepayWay": [
+                  "等本等息",
+                  "先息后本"
+              ],
+              "productTypeName": "车险分期",
+              "productNo": "CP000007",
+              "productName": "分期汇"
+          }
+      ]
+  }
+    
   }
 
 }
