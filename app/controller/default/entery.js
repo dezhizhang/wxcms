@@ -882,6 +882,73 @@ class EnteryController extends Controller {
     }
 
   }
+  async insuranCecompanyQueryAccount() {
+    let result = this.ctx.request.body;
+    this.ctx.body = {
+      "code": 200,
+      "message": "请求成功",
+      "data": {
+          "bankCode": "020000000",
+          "channelNo": "HC_10001",
+          "accountName": "Lakers",
+          "companyName": "NBA",
+          "bankBranchName": "珠江新城",
+          "bankAccountNo": "1001010010",
+          "bankUnionpayNo": "1904",
+          "bankName": "gongshangyh",
+          "companyId": "601490823799947264",
+          "bankProviceCode": "020",
+          "bankProviceName": "广东省",
+          "bankCityName": "广州",
+          "bankCityCode": "GZ"
+      }
+  }
+  }
+  //添加保险公司
+  async insuranceCompanyAddAccount() {
+    let result = this.ctx.request.body;
+    this.ctx.body = {
+      code:200,
+      message:'添加保险公司成功',
+      data:{
+        "companyId": "601490823799947264"
+      }
+    }
+  }
+  //分支行
+  async queryBankBranchList() {
+    let result = this.ctx.request.body;
+  
+    this.ctx.body = {
+      code:200,
+      message:'请求成功',
+      data:[
+        {
+          'bankBranchName':'中国银行',
+          'bankUnionpayNo':'10000001'
+        },
+        {
+          'bankBranchName':'建设银行',
+          'bankUnionpayNo':'10000002'
+        }
+      ]
+    }
+
+  }
+  //修改保险公司帐户
+  async insuranCecompanyModifyAccount() {
+    let result = this.ctx.request.body;
+    console.log(result);
+    
+    this.ctx.body = {
+      code:200,
+      message:'修改保险帐户成功',
+      data:{
+        "companyId": "601490823799947264"
+      }
+    }
+
+  }
 
 }
 

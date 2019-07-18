@@ -304,7 +304,17 @@ module.exports = app => {
  //试算接口
  router.post('/api/financing/trial',controller.default.entery.financingTrial);
  //获取保险公司列表
- router.post('/api/insuranceCompanyQueryList',controller.default.entery.companyQueryList)
+ router.post('/api/insuranceCompanyQueryList',controller.default.entery.companyQueryList);
+ //获取保险公司
+ router.post('/api/insuranCecompanyQueryAccount',controller.default.entery.insuranCecompanyQueryAccount);
+ //添加保险公司
+ router.post('/api/insuranceCompanyAddAccount',controller.default.entery.insuranceCompanyAddAccount);
+ //分支行列表
+ router.post('/api/bank/queryBankBranchList',controller.default.entery.queryBankBranchList);
+ //修改保险公司
+ router.post('/api/insuranCecompanyModifyAccount',controller.default.entery.insuranCecompanyModifyAccount);
+
+
 
 
 
