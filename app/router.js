@@ -313,6 +313,8 @@ module.exports = app => {
  router.post('/api/bank/queryBankBranchList',controller.default.entery.queryBankBranchList);
  //修改保险公司
  router.post('/api/insuranCecompanyModifyAccount',controller.default.entery.insuranCecompanyModifyAccount);
+ //推送保单信息
+ router.post('/api/manulApply',controller.default.entery.manulApply);
 
 
 

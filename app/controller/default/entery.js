@@ -938,8 +938,6 @@ class EnteryController extends Controller {
   //修改保险公司帐户
   async insuranCecompanyModifyAccount() {
     let result = this.ctx.request.body;
-    console.log(result);
-    
     this.ctx.body = {
       code:200,
       message:'修改保险帐户成功',
@@ -948,6 +946,19 @@ class EnteryController extends Controller {
       }
     }
 
+  }
+  //推送保单信息
+  async manulApply() {
+    let result = this.ctx.request.body;
+    console.log(result);
+    
+    this.ctx.body = {
+      code:200,
+      message:'恭喜您，提单成功',
+      data:{
+        userNo:'1234565'
+      }
+    }
   }
 
 }
