@@ -950,13 +950,42 @@ class EnteryController extends Controller {
   //推送保单信息
   async manulApply() {
     let result = this.ctx.request.body;
-    console.log(result);
-    
     this.ctx.body = {
       code:200,
       message:'恭喜您，提单成功',
       data:{
         userNo:'1234565'
+      }
+    }
+  }
+  async companyTrial() {
+    let result = this.ctx.request.body;
+    console.log(result);
+    
+    this.ctx.body = {
+      code: 200,
+      message: "请求成功",
+      "data": {
+          "bizNo": "6c2711e6e5a548aba3f9f32a76439fc3",
+          "period": 1,
+          "businessPremium": 10000,
+          "monthlyRepayment": 1667.17,
+          "forceInsurancePremium": 6689,
+          "fistPayment": 10704.17,
+          "trialUrl": "",
+          "totalInterest": 3,
+          "carTaxAmount": 2345,
+          "policyHolder": {
+              "attType": 50,
+              "attachment": "",
+              "specialClause": "特别条款",
+              "cardType": 1,
+              "linkAddress": "",
+              "subjectType": 1,
+              "cardNo": "110101199003076157",
+              "telNo": "",
+              "subjectName": ""
+          }
       }
     }
   }

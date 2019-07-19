@@ -315,6 +315,8 @@ module.exports = app => {
  router.post('/api/insuranCecompanyModifyAccount',controller.default.entery.insuranCecompanyModifyAccount);
  //推送保单信息
  router.post('/api/manulApply',controller.default.entery.manulApply);
+ //企业试算
+ router.post('/api/trial',controller.default.entery.companyTrial);
 
 
 
