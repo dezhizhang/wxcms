@@ -18,8 +18,7 @@ module.exports = appInfo => {
         options: {},
       },
     };
-  
-  
+    
     //允许请求
     config.cors = {
       origin: '*',

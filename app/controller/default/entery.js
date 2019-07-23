@@ -831,37 +831,41 @@ class EnteryController extends Controller {
   //试算
   async financingTrial() {
     let result = this.ctx.request.body;
+    console.log(result);
+
     this.ctx.body = {
-      code: 200,
-      message: "请求成功",
-      "data": {
-          "bizNo": "6c2711e6e5a548aba3f9f32a76439fc3",
-          "period": 1,
-          "businessPremium": 10000,
-          "monthlyRepayment": 1667.17,
-          "forceInsurancePremium": 6689,
-          "fistPayment": 10704.17,
-          "trialUrl": "",
-          "totalInterest": 3,
-          "carTaxAmount": 2345,
-          "policyHolder": {
-              "attType": 50,
-              "attachment": "",
-              "specialClause": "特别条款",
-              "cardType": 1,
-              "linkAddress": "",
-              "subjectType": 1,
-              "cardNo": "110101199003076157",
-              "telNo": "",
-              "subjectName": ""
-          }
+      head:{
+        code: 200,
+        message: "请求成功",
+      },
+      body:{
+        "bizNo": "6c2711e6e5a548aba3f9f32a76439fc3",
+        "period": 1,
+        "businessPremium": 10000,
+        "monthlyRepayment": 1667.17,
+        "forceInsurancePremium": 6689,
+        "fistPayment": 10704.17,
+        "trialUrl": "",
+        "totalInterest": 3,
+        "carTaxAmount": 2345,
+        "policyHolder": {
+            "attType": 50,
+            "attachment": "",
+            "specialClause": "特别条款",
+            "cardType": 1,
+            "linkAddress": "",
+            "subjectType": 1,
+            "cardNo": "110101199003076157",
+            "telNo": "",
+            "subjectName": ""
+        }
       }
-  }
+    }
   }
   //获取保险公司
   async companyQueryList() {
     let result = this.ctx.request.body;
-    console.log(result);
+  
     this.ctx.body = {
       "code": 200,
       "message": "请求成功",
@@ -960,8 +964,6 @@ class EnteryController extends Controller {
   }
   async companyTrial() {
     let result = this.ctx.request.body;
-    console.log(result);
-    
     this.ctx.body = {
       code: 200,
       message: "请求成功",
@@ -987,6 +989,60 @@ class EnteryController extends Controller {
               "subjectName": ""
           }
       }
+    }
+  }
+  //获取个人保险公司列表
+  async querylist() {
+    let result = this.ctx.request.body;
+    this.ctx.body = {
+      head:{
+        code:200,
+        message:'请求成功'
+      },
+      body:{
+        'companyList': [
+                {
+                    "companyId": "600334743522893824",
+                    "companyName": "是是22是"
+                },
+                {
+                    "companyId": "600334801857273856",
+                    "companyName": "是是222是"
+                },
+                {
+                    "companyId": "600341291322171392",
+                    "companyName": "是是22233是s33"
+                }
+        ]
+      }
+    }
+   
+   
+  }
+  //获取保险公司信息
+  async queryaccount() {
+    let result = this.ctx.request.body;
+    this.ctx.body = {
+      head:{
+        code:200,
+        message:'请求成功'
+      },
+      body:{
+        "bankCode": "020000000",
+        "channelNo": "HC_10001",
+        "accountName": "Lakers",
+        "companyName": "NBA",
+        "bankBranchName": "珠江新城",
+        "bankAccountNo": "1001010010",
+        "bankUnionpayNo": "1904",
+        "bankName": "gongshangyh",
+        "companyId": "601490823799947264",
+        "bankProviceCode": "020",
+        "bankProviceName": "广东省",
+        "bankCityName": "广州",
+        "bankCityCode": "GZ"
+      }
+
     }
   }
 

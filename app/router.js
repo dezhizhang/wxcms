@@ -303,7 +303,7 @@ module.exports = app => {
  router.post('/api/getFinancialProduct',controller.default.entery.getFinancialProduct);
  //试算接口
  router.post('/api/financing/trial',controller.default.entery.financingTrial);
- //获取保险公司列表
+ //企业获取保险公司列表
  router.post('/api/insuranceCompanyQueryList',controller.default.entery.companyQueryList);
  //获取保险公司
  router.post('/api/insuranCecompanyQueryAccount',controller.default.entery.insuranCecompanyQueryAccount);
@@ -317,6 +317,10 @@ module.exports = app => {
  router.post('/api/manulApply',controller.default.entery.manulApply);
  //企业试算
  router.post('/api/trial',controller.default.entery.companyTrial);
+ //个人获取保险公司列表
+ router.post('/api/insurancecompany/querylist',controller.default.entery.querylist);
+ //获取保险公司信息
+ router.post('/api/insurancecompany/queryaccount',controller.default.entery.queryaccount);
 
 
 
